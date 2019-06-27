@@ -1,0 +1,8 @@
+.info-msg{
+    background-color: rgb(143, 192, 221);
+    color: rgb(23, 114, 150);
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 900px;
+    border-radius: 5px;
+}

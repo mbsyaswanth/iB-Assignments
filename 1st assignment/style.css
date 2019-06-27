@@ -1,0 +1,334 @@
+
+/* css for desktop */
+html,body{
+    
+    height:100vh;
+    margin: 0;
+}
+/* @media only screen and (min-width: 768px) {
+   .tablet, .mobile{
+       display: none;
+   }
+    .desktop .bg_desktop {
+        width: 1440px;
+        height: 900px;
+        object-fit: contain;
+      }
+  
+  } */
+  .chevron-down-lite {
+    width: 8px;
+    height: 4px;
+    object-fit: contain;
+    padding:4px;
+  }
+.mobile-howto{
+  display: none;
+}
+  .Rectangle-5-Copy-4 {
+    height: 56px;
+    background-color: #1b4a98;
+  }
+.background{
+  position :relative;
+  height: 100vh;
+}
+.lines{
+  width:18px;
+  height:1px;
+  background-color: #ffffff;
+  padding:1px;
+  margin:2px;
+}
+.drop-down-icon{
+  display: flex;
+  flex-direction: column;
+  padding:33px;
+  padding-left:10px;
+  z-index: 999;
+}
+.nav{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 999;
+}
+.book-now{
+  margin:32px;
+  padding:10px 18px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: solid 1px #f47400;
+  background-color: #f47400;
+}
+.nav-item{
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.46;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.home{
+  color: #f5571c;
+}
+  .iB-Cricket-now-as-a {
+    padding-top: 16px;  
+    width: 97%;
+    display: inline-block;
+    justify-content: center;
+    height: 48px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .close {
+      display: inline-block;
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+  }
+  
+  li {
+    list-style-type: none;
+    padding-left:45px;
+  }
+  ul {
+      display: flex;
+      justify-content: flex-end;
+      margin:0;
+  }
+
+.ibc_logo{
+    position: relative;
+    display:flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tablet, .mobile{
+    display: none;
+}
+ .desktop .bg_desktop {
+     width: 100%;
+     position:absolute;
+     object-fit: contain;
+   }
+
+   .iBC_Logo {
+    width: 194px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .Worlds-Most-Immersi {
+    width: 520px;
+    height: 88px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #ffffff;
+  }
+ .howto{
+  display: flex;
+  flex-direction: column;
+  
+ }
+.how-to-section1{
+  z-index: 999;
+  /* height: 200px; */
+  background-color: #1b4a98;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom:50px;
+}
+.howto-item{
+  display: flex;
+  flex-direction: column;
+  width:360px;
+}
+
+.where-to{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58px;
+  background-color: #1b4486;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #ffffff;
+}
+.what{
+  display: block;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom:5px;
+}
+.whatis{
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.39;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.what-text{
+  text-align: center;
+}
+
+.what-logo{
+  text-align: center;
+  margin-bottom:12px;
+}
+  /* css for tablet */
+@media only screen and (max-width: 768px) {
+    .mobile, .desktop {
+        display: none;
+    }
+    .Rectangle-5-Copy-4{
+        display: none;
+    }
+    .tablet{
+        display: block;
+    }
+    .tablet .bg_tablet {
+        /* width: 768px;
+        height: 1024px; */
+        position:absolute;
+        object-fit: contain;
+      }
+      .tablet .iBC_Logo {
+        width: 194px;
+        height: 150px;
+        object-fit: contain;
+      }
+
+      .drop-down-icon {
+        justify-content: center;
+      }
+
+      .tablet .Worlds-Most-Immersi {
+        width: 520px;
+        height: 88px;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Roboto;
+        font-size: 32px;
+        font-weight: bold;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: -0.5px;
+        text-align: center;
+        color: #ffffff;
+      }
+      
+  }
+/* css for mobile */
+@media only screen and (max-width: 360px) {
+    .desktop, .tablet, .desktop-howto{
+        display: none;
+    }
+    .mobile-howto{
+      display: inline;
+      margin-right:17px;
+    }
+    .drop-down-icon {
+      justify-content: center;
+    }
+    .ibc_logo{
+      justify-content: initial;
+    }
+    .how-to-section1{
+      height: 501px;
+      flex-direction: column;
+      padding-left:30px;
+    }
+    .what-text, .what {
+      text-align: left;
+    }
+    .Rectangle-5-Copy-4{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    .ibc_logo{
+        padding-top: 216px;
+    }
+    .mobile .Rectangle-18-Copy-2 {
+        width: 360px;
+        height: 640px;
+        position:absolute;
+        object-fit: contain;
+        opacity: 0.8;
+        background-image: linear-gradient(to bottom, rgba(29, 30, 30, 0.5), #262d39 49%, #1746a1);
+      }
+      .iBC_Logo {
+        width: 162px;
+        height: 125px;
+        object-fit: contain;
+      }
+      .Worlds-Most-Immersi {
+        width: 320px;
+        height: 60px;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .howto-item{
+        display: flex;
+        flex-direction: row;
+      }
+  }
+
+  

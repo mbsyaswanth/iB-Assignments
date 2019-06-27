@@ -1,0 +1,5 @@
+-Main component (stateful - comments)
+	- comment-collecter (stateful - input)
+		- comment-input (grap use input)
+		- comment-submit (onclick submit comment to main component and append it to comments state , which is a array)
+	- comments-list (display the comments array using maps function)

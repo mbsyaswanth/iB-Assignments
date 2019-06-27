@@ -1,0 +1,11 @@
+import React from 'react';
+
+const Button = (props) => {
+    return ( 
+        <button className="btn-style" onClick={props.btnAction}>
+            {props.btnText} 
+        </button>
+     );
+}
+ 
+export default Button;

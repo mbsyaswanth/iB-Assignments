@@ -1,0 +1,8 @@
+.success-msg{
+    background-color: greenyellow;
+    color: green;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 900px;
+    border-radius: 5px;
+}

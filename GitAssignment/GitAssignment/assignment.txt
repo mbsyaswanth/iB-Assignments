@@ -1,0 +1,9 @@
+Assignment:
+Create a GitHub account for you
+Create a repo in your account
+Clone your repo and make sure you create the structure in the image(Same folder). Using all the commands discussed.
+
+For visualisation download and install  https://www.gitkraken.com/download
+https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
+
+
