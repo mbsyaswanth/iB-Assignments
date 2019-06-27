@@ -56,6 +56,7 @@ class StopWatch extends Component {
         let start = a.split(":");
         console.log(start);
         let end = b.split(":");
+        
         console.log(parseInt(end[0],10)-parseInt(start[0],10)+":"+parseInt(end[1],10)-parseInt(start[1],10));
         return parseInt(end[0],10)-parseInt(start[0],10)+":"+parseInt(end[1],10)-parseInt(start[1],10)
     }
