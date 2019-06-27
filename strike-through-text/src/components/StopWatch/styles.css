@@ -1,0 +1,44 @@
+.stop-watch-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stop-watch{
+    height:150px;
+    width:150px;
+    border-radius: 50%;
+    border:1px solid black;
+}
+
+.stop-watch-minutes {
+    display: inline-block;
+    font-size:2.2rem;
+    padding-left:61px;
+    padding-top:51px;
+    padding-right: 4px;
+}
+.stop-watch-secs{
+    display: inline-block;
+    font-size:1.2rem;
+}
+
+.stp-watch-btn {
+    background-color: white;
+    color: black;
+    margin: 10px;
+    border-style: none;
+    border: 1px solid black;
+    padding: 6px 20px;
+    cursor: pointer;
+}
+
+.stp-watch-btn:focus {
+    outline: 1px solid black;
+}
+
+.stp-watch-btn:hover {
+    box-shadow: 1px 1px 3px 0px black;
+}
+

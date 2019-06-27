@@ -63,12 +63,15 @@ class StopWatch extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <div>{this.state.minutes}</div>
-                    <div>{this.state.secs}</div>
+            <div className="stop-watch-container">
+                <div className="stop-watch">
+                   
+                        <div className="stop-watch-minutes">{this.state.minutes}</div>
+                        <div className="stop-watch-secs">{this.state.secs}</div>
+                    
                 </div>
                 <div>
+                    <ul>
                     {
                         this.state.laps.length===0?"":
                         this.state.laps.map(
@@ -77,12 +80,13 @@ class StopWatch extends Component {
                             }
                         )
                     }
+                    </ul>
                 </div>
-                <div>
-                   <button onClick={this.onLapClick}>Lap</button>
-                   <button onClick={this.onStartClick}>Start</button>
-                   <button onClick={this.onStopClick}>Stop</button>
-                   <button onClick={this.onResetClick}>Reset</button>
+                <div className="stop-watch-controls">
+                   <button className="stp-watch-btn" onClick={this.onLapClick}>Lap</button>
+                   <button className="stp-watch-btn" onClick={this.onStartClick}>Start</button>
+                   <button className="stp-watch-btn" onClick={this.onStopClick}>Stop</button>
+                   <button className="stp-watch-btn" onClick={this.onResetClick}>Reset</button>
                 </div>
             </div>
         );
