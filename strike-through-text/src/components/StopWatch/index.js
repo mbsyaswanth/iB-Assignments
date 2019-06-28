@@ -55,11 +55,17 @@ class StopWatch extends Component {
     lapCalculator= (a,b) => {
         let start = a.split(":");
         let end = b.split(":");
-        let startsecs=start[0]*60+start[1];
-        let endsecs=end[0]*60+end[1];
+        let startsecs=parseInt(start[0],10)*60+parseInt(start[1],10);
+        // console.log("start-0 :",start[0]);
+        // console.log("start-1 :",start[1]);
+        // console.log("startsecs: "+startsecs);
+        let endsecs=parseInt(end[0],10)*60+parseInt(end[1],10);
+        // console.log("end-0 :",end[0]);
+        // console.log("end-1 :",end[1]);
+        // console.log("endsecs :"+endsecs);
         let diff = endsecs-startsecs;
-        console.log(diff);
-        console.log(Math.floor(diff/60)+":"+diff%60)
+        // console.log("diff :",diff);
+        // console.log(Math.floor(diff/60)+":"+diff%60);
         return (Math.floor(diff/60)+":"+diff%60);
     }
 
