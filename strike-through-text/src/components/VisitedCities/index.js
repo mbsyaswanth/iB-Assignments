@@ -5,56 +5,66 @@ import CheckBox from './CheckBox';
 import './styles.css';
 
 class VisitedCities extends Component {
-    state = { 
-        selectedCities : [],
-        submittedCities : [],
+    state = {
+        selectedCities: [],
+        submittedCities: [],
         resultClass: "hide-text"
-     }
+    }
 
-     setSelectedCities = (x,checked) => {
-         if(checked){
-             if(!this.state.selectedCities.includes(x)){
+    setSelectedCities = (x, checked) => {
+        if (checked) {
+            if (!this.state.selectedCities.includes(x)) {
                 this.setState(
-                    {selectedCities: this.state.selectedCities.concat(x)},
+                    {
+                        selectedCities: this.state.selectedCities.concat(x),
+                        resultClass: "hide-text"
+                    },
                     () => {
                         console.log(this.state.selectedCities);
                     }
-                ) 
-             }
-         } else {
-            if(this.state.selectedCities.includes(x)){
+                )
+            }
+        } else {
+            if (this.state.selectedCities.includes(x)) {
                 this.setState(
-                    {selectedCities: this.state.selectedCities.filter(item => item !== x)},
+                    {
+                        selectedCities: this.state.selectedCities.filter(item => item !== x),
+                        resultClass: "hide-text"
+                    },
                     () => {
                         console.log(this.state.selectedCities);
                     }
-                ) 
-             }
-         }
-     }
+                )
+            }
+        }
+    }
 
-     submit = () => {
-         this.setState(
-             {
-                 resultClass:"",
-                 submittedCities:this.state.selectedCities
-             }
-         )
-     }
-    
-    render() { 
-        return ( 
-            <div>
+    submit = () => {
+        if (this.state.selectedCities) {
+            this.setState(
                 {
-                     this.props.cities.map((city) => {
-                      return  <CheckBox key={city} labelText={city} updateSelectedCities={this.setSelectedCities} />
+                    resultClass: "",
+                    submittedCities: this.state.selectedCities
+                }
+            )
+        }
+    }
+
+    render() {
+        return (
+            <div className="center">
+                <div>
+                {
+                    this.props.cities.map((city) => {
+                        return <CheckBox key={city} labelText={city} updateSelectedCities={this.setSelectedCities} />
                     })
                 }
-                <button onClick={this.submit}>Submit</button>
+                </div>
+                <button className="stp-watch-btn" onClick={this.submit}>Submit</button>
                 <div className={this.state.resultClass}>You have visited these cities {this.state.submittedCities}</div>
             </div>
-         );
+        );
     }
 }
- 
+
 export default VisitedCities;

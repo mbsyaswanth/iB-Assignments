@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.stp-watch-btn {
+  background-color: white;
+  color: black;
+  margin: 10px;
+  border-style: none;
+  border: 1px solid black;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+.undotted-list{
+  list-style: none;
+  padding:0;
+}
+
+.center {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2{
+  text-align:center;
+  text-decoration: underline;
+  margin-bottom:35px;
+}

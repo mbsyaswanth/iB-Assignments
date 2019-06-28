@@ -20,15 +20,16 @@ class DisableButton extends Component {
     render() {
 
         return (
-            <div>
+            <div className="center">
                 <label>
                     <input
                         type="checkbox"
                         checked={this.state.selected}
                         onChange={this.handleCheckbox} />
+                        Disabled
                 </label>
                 <span>
-                    <button onClick={this.handleClick}>Click me</button>
+                    <button className="stp-watch-btn" onClick={this.handleClick}>Click me</button>
                 </span>
             </div>
         );

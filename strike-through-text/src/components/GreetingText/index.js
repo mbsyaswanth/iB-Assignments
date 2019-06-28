@@ -10,21 +10,26 @@ class GreetingText extends Component {
     state = {
         username: "",
         greet: "",
-        focus: "dontshow"
+        focus: "dontshow",
+        greetingText:"donotshow"
     }
 
     stateUsernameUpdate = (event) => {
         this.setState({
-            username: event.target.value 
+            username: event.target.value ,
+            greetingText:"donotshow"
         });
         console.log(this.state.username)
     }
 
     handleSubmit = (event) => {
-        this.setState({
-            greet : this.state.username, 
-            username: "" 
-        });
+        if(this.state.username){
+            this.setState({
+                greet : this.state.username, 
+                username: "" ,
+                greetingText:""
+            });
+        }
         console.log(this.state.greet);
         event.preventDefault();
     }
@@ -40,10 +45,10 @@ class GreetingText extends Component {
             <>
                 <div className="greeting-container">
                     <InputBox inputValue={this.state.username} updateInput={this.stateUsernameUpdate} helperTextClass={this.state.focus} focushandle={this.handleFocus} />
-                    <Button btnText="Greet" btnAction={this.handleSubmit}/> 
+                    <Button  btnText="Greet" btnAction={this.handleSubmit}/> 
                
                    
-                <div>
+                <div className={this.state.greetingText}>
                    Hello {this.state.greet}, Have a nice day.
                 </div>
                 </div>

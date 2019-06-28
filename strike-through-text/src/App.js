@@ -19,6 +19,7 @@ import SelectYourState from './components/SelectYourState'
 import DisableButton from './components/DisableButton'
 
 import StopWatch from './components/StopWatch';
+import CommentsComponent from './components/CommentsComponent';
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
       <GreetingText />
     <hr></hr>
     <h2>Favourite Dessert</h2>
-      <FavouriteDessert /> 
+      <FavouriteDessert desserts={['Vanilla','Butterscotch','Chocolate','Strawberry']} /> 
       <hr></hr>
     <h2>Check boxes</h2>
       <VisitedCities cities={['Hyderabad','Banglore','Delhi','Dubai','Mumbai']} /> 
@@ -55,6 +56,9 @@ function App() {
       <hr></hr>
       <h2>Stop Watch</h2>
       <StopWatch />
+      <hr></hr>
+      <h2>Comments List</h2>
+      <CommentsComponent />
     </>
   );
 }
