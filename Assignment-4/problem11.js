@@ -38,11 +38,11 @@ function showroom(id, cars, addr) {
         for (i = 0; i < this.cars.length; i++) {
             if (this.cars[i].id == car.id) {
 
-                console.log("car found in showroom");
+                //console.log("car found in showroom");
                 return true;
             }
         }
-        console.log("car not available in showroom. please choose another car");
+        //console.log("car not available in showroom. please choose another car");
         return false;
     };
     this.removecar = function (rcar) {
@@ -51,15 +51,15 @@ function showroom(id, cars, addr) {
                 return car.id !== rcar.id;
             });
             if (filcar.length == this.cars.length) {
-                console.log("failed to remove car.");
+                //console.log("failed to remove car.");
                 return false;
             } else {
                 this.cars = filcar;
-                console.log("removed the car from showroom :" + this.cars)
+                //console.log("removed the car from showroom :" + this.cars)
                 return true;
             }
         } else{
-            console.log("car not available in showroom");
+            //console.log("car not available in showroom");
         }
     };
 }
@@ -79,7 +79,7 @@ let PersonA = {
                 }
                 if(showroom.removecar(car)){
                     this.carsOwned.push(car);
-                    console.log("car added to person's car owned list : " + this.carsOwned);
+                    console.log("you have successfully bought this car  : " + this.carsOwned);
                 }
             };
         }
@@ -91,7 +91,7 @@ let PersonA = {
                 return true;
             }
         }
-        console.log("You dont have this car.");
+        //console.log("You dont have this car.");
         return false;
     },
     addToWishlist: function (car) {
@@ -103,11 +103,11 @@ let PersonA = {
     searchWishlist: function(car) {
         for (i = 0; i < this.carsWishList.length; i++) {
             if (this.carsWishList[i].id == car.id) {
-                console.log("car found in wishlist");
+                //console.log("car found in wishlist");
                 return true;
             }
         }
-        console.log("car not found in wishlist");
+        //console.log("car not found in wishlist");
         return false;
     },
     removeFromWishlist: function(car) {
@@ -116,11 +116,11 @@ let PersonA = {
                 return wcar.id !== car.id;
             });
             if (filcar.length == this.carsWishList.length) {
-                console.log("failed to remove car from wishlist.");
+                //console.log("failed to remove car from wishlist.");
                 return false;
             } else {
                 this.carsWishList = filcar;
-                console.log("removed the car from wishlist :", this.cars)
+                //console.log("removed the car from wishlist :", this.cars)
                 return true;
             }
         }
