@@ -1,0 +1,26 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width:100%;
+    height:200px;
+}
+
+.btn{
+    width:220px;
+    height: 40px;
+    color:white;
+    font-size: 2rem;
+    background-color:rgb(228, 140, 109);
+    padding:20px 10px;
+    transition: width 1s;
+}
+
+.btn:hover {
+    width:150px;
+    background-color: green;
+    border-radius:50px;
+}
