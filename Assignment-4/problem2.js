@@ -2,4 +2,4 @@ let RequiredRunrate= (targetScore) => {
     return targetScore/50;
 }
 
-console.log(RequiredRunrate(300));
+console.log(RequiredRunrate(1));

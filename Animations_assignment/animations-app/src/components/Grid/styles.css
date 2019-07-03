@@ -1,0 +1,19 @@
+.square {
+    background-color: rgb(106, 230, 106);
+    color: white;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(0);
+    transition: transform 1s;
+}
+
+.trans2d{
+    transform:rotate(180deg);
+}
+
+.trans3d{
+    transform:rotateY(180deg);
+}

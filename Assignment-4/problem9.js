@@ -12,4 +12,4 @@ let leftRightofLetter= (str,letter) => {
     }
 }
 
-leftRightofLetter("IBHUBS","U");
+leftRightofLetter("IBHUBS","X");

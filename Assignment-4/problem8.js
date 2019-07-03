@@ -4,7 +4,7 @@ let longestWord = (str) => {
         for(j=0;j<words.length;j++){
             if(words[i].length<=words[j].length){
                 if(j==(words.length-1)){
-                    console.log("in if",words[i]);
+                   // console.log("in if",words[i]);
                     return words[i];
                 } else if(i!=j) {
                     //console.log(words[i]);
@@ -18,5 +18,5 @@ let longestWord = (str) => {
     
 }
 
-let strng='You progress the nation follows';
+let strng='You the nation follows progress';
 console.log(longestWord(strng));

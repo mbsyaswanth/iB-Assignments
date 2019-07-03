@@ -6,8 +6,7 @@ class CommentCollector extends Component {
     constructor(props) {
         super(props)
         this.state = { 
-            input : "",
-            time:""
+            input : ""
          }
       }
       timeFinder= () => {

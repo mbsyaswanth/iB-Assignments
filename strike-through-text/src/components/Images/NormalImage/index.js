@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './styles.css'
-import { tsPropertySignature } from '@babel/types';
+
 
 const NormalImage = (props) => {
     return ( 

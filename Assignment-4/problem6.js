@@ -11,6 +11,6 @@ let frequency = (arr) => {
     return obj;
 }
 
-let arr = ["a", "a", "b", "d", "e"];
+let arr = ["", "a", "b", "d", "e",''," ","  "];
 
 console.log(frequency(arr));

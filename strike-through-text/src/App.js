@@ -26,7 +26,7 @@ function App() {
     <>
     <div>
       <h2>Strike through Text</h2>
-      <StrikeText inputText="loream ipusum fd hfsdlkhlfhdsfhsdhfh  hlhfovnnf hlohfaoi" />
+      <StrikeText inputText="HELLO GJSFD;GLJSF;DLGJ;LDJGH;J;" />
     </div>
     <hr></hr>
     <div>
@@ -43,10 +43,10 @@ function App() {
       <GreetingText />
     <hr></hr>
     <h2>Favourite Dessert</h2>
-      <FavouriteDessert desserts={['Vanilla','Butterscotch','Chocolate','Strawberry']} /> 
+      <FavouriteDessert desserts={['Vanilla','Butterscotch','Chocolate','Strawberry','Blueberry']} /> 
       <hr></hr>
     <h2>Check boxes</h2>
-      <VisitedCities cities={['Hyderabad','Banglore','Delhi','Dubai','Mumbai']} /> 
+      <VisitedCities cities={['Hyderabad','Banglore','Delhi','Dubai','Mumbai','Assam','Goa']} /> 
       <hr></hr>
     <h2>Select your state</h2>
       <SelectYourState states={['Andhra Pradesh','Kerala','Tamilnadu','Karnataka','Delhi']} /> 

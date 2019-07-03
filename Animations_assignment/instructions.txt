@@ -1,0 +1,22 @@
+Instructions for Assignment 3
+------------------------------------
+
+https://www.w3schools.com/css/css3_transitions.asp
+https://www.w3schools.com/css/css3_2dtransforms.asp
+https://www.w3schools.com/css/css3_3dtransforms.asp
+
+
+1) Go through above reference links to get idea about animations
+
+
+Problem : 2
+
+ - Take a sample image from internet to show down arrow button
+
+
+Problem : 3 
+
+ - For first and last columns animation effect (3D) is different from other columns (2D)
+ - If User gives a number as input then You should render grid with that number of columns and rows
+
+
