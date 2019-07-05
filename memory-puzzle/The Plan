@@ -1,0 +1,31 @@
+ 1) show level and theme mode. 10 min - start - 10:09 end -10:20
+
+ 2) change background color on toggling theme mode button. 30 min  10:32 - 11:04
+
+ 3) design a square component. 20 min 11:08 11:32
+
+ 4) show grid based on given size. 20min break given   end - 12:20 
+
+ 5) Generate required number of squares.  20 min start- 12:30 - 12:39
+
+ 6) change square color on click. 20 min start 12:50 - 13:05 
+ 
+ 7) keep track on clicked squares. end - 13:05
+
+ 8) generate required number of random numbers.  10mins -14:31 - 14:41
+
+ 9) change color of squares whose number is random number. 10mins 14:46 - 15:30 (also edited random number function)
+
+ 10) display the random squares for n secs where n is grid size. 10mins 15:39 - 16:27
+
+ 11) if the clicked square is random square, then show a color, if  it is wrong, then show it as red. 10mins 16:32 learning hours break;
+
+ 12) check the clicked squares with the random numbers and increment level if they match. otherwise go to level 0
+
+ 13) update grid size on level change
+
+ 14) update random numbers on level change
+
+ 15) Congratulate user on completing all the levels.
+
+ 
