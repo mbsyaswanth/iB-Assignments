@@ -25,11 +25,20 @@ class Square extends Component {
     handleClick = () => {
         console.log("clicked on it");
         this.props.updateclick(this.props.number);
-         this.setState(
+        if(this.props.show==="true"){
+            this.setState(
                 {
                     clickClass:"clicked-square"
                 }
             )
+        } else {
+            this.setState(
+                {
+                    clickClass:"wrong-square"
+                }
+            )
+        }
+         
         
     }
 
