@@ -18,7 +18,7 @@
 
  10) display the random squares for n secs where n is grid size. 10mins 15:39 - 16:27
 
- 11) if the clicked square is random square, then show a color, if  it is wrong, then show it as red. 10mins 16:32 learning hours break;
+ 11) if the clicked square is random square, then show a color, if  it is wrong, then show it as red. 10mins 16:32 learning hours break; done end - 17:35
 
  12) check the clicked squares with the random numbers and increment level if they match. otherwise go to level 0
 

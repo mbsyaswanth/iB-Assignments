@@ -1,0 +1,7 @@
+As a user I should be able to start game in level 0 with 3X3 grid.
+    - In level 0, 3 blocks will be shown for 3 seconds and then disappear and 
+    user should remember them and select them then only he will upgraded to next level otherwise he will downgraded to level 0.
+
+    - Likewise, in NxN grid, N blocks will be shown for N seconds.
+
+    - The game will end at Level 10 and user should be shown "Congratulations! You completed all the level"
