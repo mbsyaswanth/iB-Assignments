@@ -51,8 +51,47 @@ class GameContainer extends Component {
          }
      }
 
+     checkClickedSquares = (clicks) => {
+         console.log(clicks.sort());
+         console.log(this.state.randomNumbers.sort());
+         console.log(clicks.sort().toString()===this.state.randomNumbers.sort().toString());
+         if(clicks.sort().toString()===this.state.randomNumbers.sort().toString()){
+             if(this.state.level==2){
+                 alert("congratulations! sucessfully completed the game. You can start again from initial level");
+                 this.setState(
+                    {
+                        level:0
+                    },this.updateRandomNums
+                )
+             } else {
+                this.setState(
+                    {
+                        level:this.state.level+1
+                    },this.updateRandomNums
+                )
+             }
+         } else {
+            this.setState(
+                {
+                    level:0
+                },this.updateRandomNums
+            )
+         }
+     }
+
+     updateRandomNums = () => {
+         console.log("setting randoms");
+         this.setState(
+             {
+                randomNumbers: this.getRandomNumbers(this.state.level)
+             }
+         )
+     }
+
      getRandomNumbers = (level) => {
+        console.log("level:",level)
         let random = [];
+        console.log("random:",random)
         while(random.length!==level+3){
             let number = Math.floor(Math.random() * Math.floor((level+3)*(level+3)));
             if(!random.includes(number))
@@ -60,6 +99,7 @@ class GameContainer extends Component {
                 random.push(number);
             }
         }
+        console.log("random:",random)
         return random;
      }
 
@@ -71,7 +111,7 @@ class GameContainer extends Component {
         return ( 
             <div className="game-container" style={themeMode}>
                 <div className="game-info">
-                    <div className="center">Level: 0</div>
+                    <div className="center">Level: {" "+this.state.level}</div>
                     <div className="center">
                         Theme mode:
                         <label className="switch" >
@@ -81,7 +121,7 @@ class GameContainer extends Component {
                     </div>
                 </div>
                 
-                    <Grid gridsize={this.state.level+3} randoms={this.state.randomNumbers} theme={this.state.thememode} />
+                    <Grid key={this.state.level} gridsize={this.state.level+3} checkclicks={this.checkClickedSquares} randoms={this.state.randomNumbers} theme={this.state.thememode} />
             
             </div>
          );

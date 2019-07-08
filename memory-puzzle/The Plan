@@ -20,12 +20,16 @@
 
  11) if the clicked square is random square, then show a color, if  it is wrong, then show it as red. 10mins 16:32 learning hours break; done end - 17:35
 
- 12) check the clicked squares with the random numbers and increment level if they match. otherwise go to level 0
+ 12) fade inside on selecting required number of correct squares or a wrong square. 20mins start- 9:15 - 9:44 (9:55 animation pending-done) done-10:03
 
- 13) update grid size on level change
+ 13) check the clicked squares with the random numbers and increment level if they match. otherwise go to level 0. 20mins 10:28 - 11:48 20mins break included
 
- 14) update random numbers on level change
+ 14) update grid size on level change -done already
 
- 15) Congratulate user on completing all the levels.
+ 15) generate squares based on grid size and display them. 12:08 (animations pending)
+
+ 16) update random numbers on level change. 13:00 - 15:47
+
+ 17) Congratulate user on completing all the levels.  done-15:52
 
  

@@ -22,6 +22,26 @@ class Square extends Component {
         );}
       }
 
+      componentWillReceiveProps(nextProps){
+        if(nextProps.show!==this.props.show){
+          //Perform some operation
+          this.setState({clickClass: nextProps.show==="true" ? "clicked-square":"" });
+        }
+        if(nextProps.show==="true")
+         {setTimeout(
+            () => {
+                console.log("timeout");
+                this.setState(
+                    {
+                        clickClass:""
+                    }
+                );
+            } 
+            , 
+            nextProps.size*1000
+        );}
+    }
+
     handleClick = () => {
         console.log("clicked on it");
         this.props.updateclick(this.props.number);
