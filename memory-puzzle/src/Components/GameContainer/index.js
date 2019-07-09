@@ -58,24 +58,12 @@ class GameContainer extends Component {
          if(clicks.sort().toString()===this.state.randomNumbers.sort().toString()){
              if(this.state.level==2){
                  alert("congratulations! sucessfully completed the game. You can start again from initial level");
-                 this.setState(
-                    {
-                        level:0
-                    },this.updateRandomNums
-                )
+                 setTimeout(this.goToInitialLevel,1000);
              } else {
-                this.setState(
-                    {
-                        level:this.state.level+1
-                    },this.updateRandomNums
-                )
+                 setTimeout(this.increaseLevel,1000);
              }
          } else {
-            this.setState(
-                {
-                    level:0
-                },this.updateRandomNums
-            )
+            setTimeout(this.goToInitialLevel,1000);
          }
      }
 
@@ -102,6 +90,18 @@ class GameContainer extends Component {
         console.log("random:",random)
         return random;
      }
+
+    goToInitialLevel = () => {
+        this.setState({
+            level: 0
+        }, this.updateRandomNums);
+    }
+
+    increaseLevel = () => {
+        this.setState({
+            level: this.state.level + 1
+        }, this.updateRandomNums);
+    }
 
     render() {
         let themeMode={

@@ -97,22 +97,28 @@
   .square-container {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .clicked-square {
     width:100%;
   }
 
-  .wrong-square {
-    background-color: red;
-    width:100%;
+  .wrong-square-after {
+    width:100% !important;
+    height: 100% !important;
   }
 
-  .grid-fade-in {
+  .grid-zoom-in {
     overflow: hidden;
     opacity: 0 !important;
     height: 0px !important;
     width: 0px !important;
+  }
+
+  .initial-grid{
+    height: 600px;
+    width: 600px;
   }
 
   .grid-container {
@@ -125,8 +131,14 @@
     transition: 0.5s;
   }
 
-  @keyframes fade {
-    from {width: 0px; height:0px; overflow: hidden;}
-    to {height: 600px; width:600px;}
+ 
+
+  .wrong-square-before{
+    height: 0%;
+    width: 0%;
+    background-color: red;
+    transition: .3s;
   }
+
+  
 
