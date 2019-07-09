@@ -13,22 +13,30 @@ class Grid extends Component {
          }
       }
 
+
+      componentWillReceiveProps(nextProps){
+        
+          this.setState({gridFade: ""});
+        
+    }
+
+
     rightClicks = () => {
         console.log("hello");
         console.log(this.state.clickedSquares.length==this.props.gridsize);
         if(this.state.clickedSquares.length==this.props.gridsize){
-            this.props.checkclicks(this.state.clickedSquares);
+            this.updateParentClicks();
             this.setState(
                 {
                     clickedSquares:[],
-                    gridFade: "grid-fade-in"
+                    gridFade: "grid-zoom-in"
                 }
             )
         } 
     }
 
     wrongClick = () => {
-        this.props.checkclicks(this.state.clickedSquares);
+       this.updateParentClicks();
     }
 
 
@@ -47,7 +55,7 @@ class Grid extends Component {
             this.setState(
                 {
                     clickedSquares: this.state.clickedSquares.concat(squarenumber),
-                    gridFade: "grid-fade-in"
+                    gridFade: "grid-zoom-in"
                 },this.wrongClick
             ) 
         }
@@ -69,21 +77,23 @@ class Grid extends Component {
      return squares;
     }
 
+    updateParentClicks= () => {
+        this.props.checkclicks(this.state.clickedSquares);
+    }
+
     render() { 
         let grid = {
             display:"grid",
-            gridTemplateColumns:"repeat("+this.props.gridsize+","+(600/this.props.gridsize)+"px)",
-            gridTemplateRows:"repeat("+this.props.gridsize+","+(600/this.props.gridsize)+"px",
+            gridTemplateColumns:"repeat("+this.props.gridsize+","+"auto"+")",
+            gridTemplateRows:"repeat("+this.props.gridsize+","+"auto"+")",
             gridGap:"2px",
             height:"600px",
             width:"600px",
-            transitionDelay: ".3s",
-            // transition:"all .4s linear .3s",
-             animation:"fade 2s"
+            transition:"all .3s linear .4s",
         }
 
         return ( 
-        <div className={"grid-container "+this.state.gridFade}>
+        <div className={"grid-container "}>
             <div className={this.state.gridFade}  style={grid}>
                 {this.generateSquares()}
             </div>

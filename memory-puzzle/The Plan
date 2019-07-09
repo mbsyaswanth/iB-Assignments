@@ -32,4 +32,35 @@
 
  17) Congratulate user on completing all the levels.  done-15:52
 
+ 18) square component state variables to actions. 20 min 12:25 - 13:02 break 14:02 - 
+
+animations
+
+1) transition while theme mode change - done before
+
+2) for correct square click - done before
+
+3) for wrong square click. 20min 9:20 - 9:42
+
+4) zoom inside after squares click. 40mins 10:01 - 10:32
+
+5) zoom outside for showing new grid. 10:32 - 
+
+bugs found 
+
+1) last click is not visible - fixed
+
+2) wrong click red color is not visible - fixed
+
+3) something wrong when theme change
+
+4) game-info bar is moving on zoom out. zoom out should be applied to a div inside container. - fixed
+
+5) do not allow the user to click while showing answer squares.
+
+6) problem if there is wrong click on level 0.
+
+7) answer square dissapears on click after sometime. - fixed 12:03
+
+
  
