@@ -1,0 +1,34 @@
+VS Code
+    [] Shortcuts/Editor usage
+        [x] Select the matching occurences
+        [x] Multi Edit
+        [x] Search files
+        [x] Find & Replace with in/Across project
+        [x] Comment the code
+        [x] Copy/Cut & paste entire line
+        [x] Move a line/lines of code
+        [x] Create a file/folder
+        [x] Move files/folders - ensure import statements
+        [x] Terminal
+        [] Access settings/ext
+    [] Path in Importing
+    [] Snippets
+    [] Git lens
+    [] Case Converter
+    [] TODO/FIXME
+    [] Quokka
+    [x] Import cost
+    [x] Auto Close Tag
+    [x] Auto Rename Tag
+    [] Editor Env
+        [] Prettier
+        [] Lint
+        [] Editor Config
+        [] Settings sync
+
+code --install-extension myextension.vsix
+
+Typing
+
+https://code.visualstudio.com/docs/getstarted/tips-and-tricks
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
