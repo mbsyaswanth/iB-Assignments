@@ -1,0 +1,42 @@
+component division 
+
+- TodoContainer 10mins 14:27
+  - TodoEntrybox 10mins 14:15 - 14:25
+  - TodoList 30mins 12:40 -13:00
+    - TodoItem (checkbox + text + clear) 20mins 12:00 - 12:20 
+  - TodoInfo (active items count + all, active,completed buttons) 30mins 11:30 - 11:55
+
+data 
+  - from input field
+  - list type -> active, all , completed
+  - active list count
+  - checkbox value to mention if the todo is completed
+  - changed todo - callback
+  - clear from list - using splice
+  - count
+
+states 
+  - form input       
+  - checkbox value
+  - list type
+
+	- todoList
+	- listType
+ - todo entry 
+ - edit or not
+
+placement of states 
+  - TodoContainer
+
+each item is object 
+ 
+ {
+	toDoText:"",
+	completed:false
+ }
+
+each todo item will be given array index as its identification.
+
+total todo. 1hr 14:40
+
+list - 30mins 15:41
