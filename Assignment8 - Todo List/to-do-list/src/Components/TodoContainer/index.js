@@ -15,9 +15,12 @@ export class TodoContainer extends Component {
   }
 
   addToTodoList = itemObj => {
+    let list = this.state.todoList;
+    list.unshift(itemObj);
     this.setState({
-      todoList: this.state.todoList.concat(itemObj)
+      todoList: list
     });
+    // this.state.todoList.concat(itemObj)
   };
 
   editIteminTodoList = (index, item) => {
