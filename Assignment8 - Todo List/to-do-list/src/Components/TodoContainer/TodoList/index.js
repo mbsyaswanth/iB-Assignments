@@ -14,8 +14,10 @@ export class TodoList extends Component {
           key={item.id}
           id={item.id}
           todoText={item.todoText}
+          completed={item.completed}
           editItem={this.props.editItem}
           deleteItem={this.props.deleteItem}
+          editStatus={this.props.editStatus}
         />
       );
     });

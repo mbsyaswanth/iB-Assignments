@@ -23,30 +23,34 @@ export class TodoItem extends Component {
 
   handleSubmit = () => {
     this.setState({ edit: false });
-    this.props.editItem(this.props.id, {
-      id: this.props.id,
-      toDoText: this.state.input,
-      completed: false
-    });
+    this.props.editItem(this.props.id, this.state.input);
+  };
+
+  handleCompleted = () => {
+    this.props.editStatus(!this.props.completed);
   };
 
   render() {
     return (
       <div className="todo-item-container">
-        {this.state.edit ? (
-          <span>
+        <span>
+          {this.state.edit ? (
             <input
               type="text"
               value={this.state.input}
               onChange={this.handleInputChange}
             />
-          </span>
-        ) : (
-          <span>
-            <input type="checkbox" />
-            {this.state.input}
-          </span>
-        )}
+          ) : (
+            <span className={this.props.completed ? "strike-text" : ""}>
+              <input
+                type="checkbox"
+                checked={this.props.completed}
+                onClick={this.handleCompleted}
+              />{" "}
+              {this.state.input}
+            </span>
+          )}
+        </span>
         <span>
           {this.state.edit ? (
             <span className="item-submit-btn">

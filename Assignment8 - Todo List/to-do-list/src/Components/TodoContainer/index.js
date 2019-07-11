@@ -23,10 +23,25 @@ export class TodoContainer extends Component {
     // this.state.todoList.concat(itemObj)
   };
 
-  editIteminTodoList = (index, item) => {
+  editIteminTodoList = (index, text) => {
     let list = this.state.todoList;
-    list[this.getItemIndexinList(index)] = item;
+    let itemIndex = this.getItemIndexinList(index);
+    list[itemIndex] = {
+      id: list[itemIndex].id,
+      todoText: text,
+      completed: list[itemIndex].completed
+    };
     this.setState({ todoList: list });
+  };
+
+  editItemStatus = (index, status) => {
+    let list = this.state.todoList;
+    let itemIndex = this.getItemIndexinList(index);
+    list[itemIndex] = {
+      id: list[itemIndex].id,
+      todoText: list[itemIndex].todoText,
+      completed: status
+    };
   };
 
   deleteIteminTodoList = index => {
@@ -73,8 +88,10 @@ export class TodoContainer extends Component {
           <TodoList
             list={this.state.todoList}
             type={this.state.listType}
+            itemStatus={this.editItemStatus}
             editItem={this.editIteminTodoList}
             deleteItem={this.deleteIteminTodoList}
+            editStatus={this.editItemStatus}
           />
           <TodoInfo
             activeCount={this.getActiveItemsCount()}

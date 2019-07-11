@@ -23,3 +23,7 @@
   width: 70%;
   /* box-shadow: 3px 3px 4px grey; */
 }
+
+.strike-text {
+  text-decoration: line-through;
+}
