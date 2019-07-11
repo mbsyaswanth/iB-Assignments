@@ -14,6 +14,7 @@ export class TodoList extends Component {
           id={index}
           todoText={item.todoText}
           editItem={this.props.editItem}
+          deleteItem={this.props.deleteItem}
         />
       );
     });

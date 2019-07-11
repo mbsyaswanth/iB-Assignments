@@ -8,6 +8,10 @@ export class TodoItem extends Component {
     };
   }
 
+  handleDelete = () => {
+    this.props.deleteItem(this.props.id);
+  };
+
   render() {
     return (
       <div className="todo-item-container">
@@ -29,7 +33,7 @@ export class TodoItem extends Component {
             <input type="button" value="submit" onClick={this.props.submit} />
           </span>
           <span className="item-delete-btn">
-            <input type="button" value="X" />
+            <input type="button" onClick={this.handleDelete} value="X" />
           </span>
         </span>
       </div>
