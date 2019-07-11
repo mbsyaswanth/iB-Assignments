@@ -25,14 +25,25 @@ export class TodoContainer extends Component {
 
   editIteminTodoList = (index, item) => {
     let list = this.state.todoList;
-    list[index] = item;
+    list[this.getItemIndexinList(index)] = item;
     this.setState({ todoList: list });
   };
 
   deleteIteminTodoList = index => {
     let list = this.state.todoList;
-    list.splice(index, 1);
+    list.splice(this.getItemIndexinList(index), 1);
     this.setState({ todoList: list });
+  };
+
+  getItemIndexinList = id => {
+    let i = 0;
+    let list = this.state.todoList;
+    while (true) {
+      if (list[i++].id === id) {
+        break;
+      }
+    }
+    return i - 1;
   };
 
   changeListType = type => {

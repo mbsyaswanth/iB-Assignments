@@ -7,9 +7,13 @@ export class TodoEntrybox extends Component {
       input: ""
     };
   }
-
+  id = 0;
   submitTodo = event => {
-    this.props.addTodo({ todoText: this.state.input, completed: false });
+    this.props.addTodo({
+      id: this.id++,
+      todoText: this.state.input,
+      completed: false
+    });
     this.setState({ input: "" });
     event.preventDefault();
   };

@@ -11,7 +11,8 @@ export class TodoList extends Component {
     return this.props.list.map((item, index) => {
       return (
         <TodoItem
-          id={index}
+          key={item.id}
+          id={item.id}
           todoText={item.todoText}
           editItem={this.props.editItem}
           deleteItem={this.props.deleteItem}

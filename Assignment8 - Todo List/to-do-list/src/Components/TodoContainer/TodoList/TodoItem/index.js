@@ -24,6 +24,7 @@ export class TodoItem extends Component {
   handleSubmit = () => {
     this.setState({ edit: false });
     this.props.editItem(this.props.id, {
+      id: this.props.id,
       toDoText: this.state.input,
       completed: false
     });
