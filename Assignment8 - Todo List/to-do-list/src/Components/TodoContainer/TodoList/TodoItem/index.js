@@ -27,7 +27,8 @@ export class TodoItem extends Component {
   };
 
   handleCompleted = () => {
-    this.props.editStatus(!this.props.completed);
+    console.log(this.props.completed);
+    this.props.editStatus(this.props.id, !this.props.completed);
   };
 
   render() {
@@ -45,7 +46,7 @@ export class TodoItem extends Component {
               <input
                 type="checkbox"
                 checked={this.props.completed}
-                onClick={this.handleCompleted}
+                onChange={this.handleCompleted}
               />{" "}
               {this.state.input}
             </span>

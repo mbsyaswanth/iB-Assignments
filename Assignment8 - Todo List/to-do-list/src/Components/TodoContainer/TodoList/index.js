@@ -8,7 +8,7 @@ export class TodoList extends Component {
   }
 
   render() {
-    return this.props.list.map((item, index) => {
+    return this.props.list.map(item => {
       return (
         <TodoItem
           key={item.id}

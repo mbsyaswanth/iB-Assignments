@@ -35,6 +35,8 @@ export class TodoContainer extends Component {
   };
 
   editItemStatus = (index, status) => {
+    console.log("status triggered");
+    console.log("status ", status);
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -42,6 +44,7 @@ export class TodoContainer extends Component {
       todoText: list[itemIndex].todoText,
       completed: status
     };
+    this.setState({ todoList: list });
   };
 
   deleteIteminTodoList = index => {
