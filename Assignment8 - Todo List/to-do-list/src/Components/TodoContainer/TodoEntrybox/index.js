@@ -9,6 +9,10 @@ export class TodoEntrybox extends Component {
   }
   id = 0;
   submitTodo = event => {
+    if (this.state.input === "" || this.state.input === " ") {
+      event.preventDefault();
+      return;
+    }
     this.props.addTodo({
       id: this.id++,
       todoText: this.state.input,
@@ -28,6 +32,7 @@ export class TodoEntrybox extends Component {
     return (
       <form onSubmit={this.submitTodo}>
         <input
+          className="todo-inputbox"
           value={this.state.input}
           onChange={this.updateInput}
           placeholder="What needs to be done?"

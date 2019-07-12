@@ -48,9 +48,11 @@ export class TodoContainer extends Component {
   };
 
   deleteIteminTodoList = index => {
-    let list = this.state.todoList;
-    list.splice(this.getItemIndexinList(index), 1);
-    this.setState({ todoList: list });
+    if (window.confirm("Do you really want to delete this item?")) {
+      let list = this.state.todoList;
+      list.splice(this.getItemIndexinList(index), 1);
+      this.setState({ todoList: list });
+    }
   };
 
   getItemIndexinList = id => {
@@ -85,8 +87,8 @@ export class TodoContainer extends Component {
   render() {
     return (
       <div className="todo-container">
+        <h2>todos</h2>
         <div className="todo-inner-container">
-          <h2>todos</h2>
           <TodoEntrybox addTodo={this.addToTodoList} />
           <TodoList
             list={this.state.todoList}

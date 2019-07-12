@@ -43,13 +43,20 @@ export class TodoItem extends Component {
         <span>
           {this.state.edit ? (
             <input
+              className="todo-inputbox"
               type="text"
               value={this.state.input}
               onChange={this.handleInputChange}
             />
           ) : (
-            <span className={this.props.completed ? "strike-text" : ""}>
+            <span
+              onDoubleClick={this.props.completed ? "" : this.handleEdit}
+              className={
+                "center " + (this.props.completed ? "strike-text" : "")
+              }
+            >
               <input
+                className="todo-item-checkbox"
                 type="checkbox"
                 checked={this.props.completed}
                 onChange={this.handleCompleted}
@@ -58,19 +65,22 @@ export class TodoItem extends Component {
             </span>
           )}
         </span>
-        <span>
+        <span className="center ">
           {this.state.edit ? (
             <span className="item-submit-btn">
               <input type="button" value="submit" onClick={this.handleSubmit} />
             </span>
           ) : (
-            <span className="item-edit-btn">
-              <input type="button" value="edit" onClick={this.handleEdit} />
-            </span>
+            ""
           )}
 
-          <span className="item-delete-btn">
-            <input type="button" onClick={this.handleDelete} value="X" />
+          <span>
+            <input
+              className="item-delete-btn"
+              type="button"
+              onClick={this.handleDelete}
+              value="X"
+            />
           </span>
         </span>
       </div>
