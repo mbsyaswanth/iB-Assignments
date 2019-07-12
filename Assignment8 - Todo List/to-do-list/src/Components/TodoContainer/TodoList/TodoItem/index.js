@@ -23,7 +23,13 @@ export class TodoItem extends Component {
 
   handleSubmit = () => {
     this.setState({ edit: false });
-    this.props.editItem(this.props.id, this.state.input);
+    if (window.confirm("do you want to confirm edits?")) {
+      this.props.editItem(this.props.id, this.state.input);
+    } else {
+      this.setState({
+        input: this.props.todoText
+      });
+    }
   };
 
   handleCompleted = () => {
