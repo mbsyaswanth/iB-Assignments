@@ -80,8 +80,12 @@ export class TodoContainer extends Component {
     return count;
   };
 
-  clearAllTodoList = () => {
-    this.setState({ todoList: [] });
+  clearAllCompleted = () => {
+    let list = this.state.todoList.filter(item => {
+      return !item.completed;
+    });
+
+    this.setState({ todoList: list });
   };
 
   render() {
@@ -99,9 +103,10 @@ export class TodoContainer extends Component {
             editStatus={this.editItemStatus}
           />
           <TodoInfo
+            currentType={this.state.listType}
             activeCount={this.getActiveItemsCount()}
             changeListType={this.changeListType}
-            clearList={this.clearAllTodoList}
+            clearList={this.clearAllCompleted}
           />
         </div>
       </div>

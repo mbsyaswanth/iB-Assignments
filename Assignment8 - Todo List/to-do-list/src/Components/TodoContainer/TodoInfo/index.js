@@ -17,19 +17,37 @@ function TodoInfo(props) {
     <div className="todo-actions-container">
       <span className="active-count">{props.activeCount + " "}items left</span>
       <span>
-        <button className="todotype-btn" onClick={onAllClick}>
+        <button
+          className={
+            "todotype-btn " +
+            (props.currentType !== "all" ? "todo-btn-inactive" : "")
+          }
+          onClick={onAllClick}
+        >
           All
         </button>
-        <button className="todotype-btn" onClick={onActiveClick}>
+        <button
+          className={
+            "todotype-btn " +
+            (props.currentType !== "active" ? "todo-btn-inactive" : "")
+          }
+          onClick={onActiveClick}
+        >
           Active
         </button>
-        <button className="todotype-btn" onClick={onCompletedClick}>
+        <button
+          className={
+            "todotype-btn " +
+            (props.currentType !== "completed" ? "todo-btn-inactive" : "")
+          }
+          onClick={onCompletedClick}
+        >
           Completed
         </button>
       </span>
       <span>
         <button className="todotype-btn" onClick={props.clearList}>
-          Clear all
+          Clear completed
         </button>
       </span>
     </div>

@@ -50,7 +50,6 @@ export class TodoItem extends Component {
             />
           ) : (
             <span
-              onDoubleClick={this.props.completed ? "" : this.handleEdit}
               className={
                 "center " + (this.props.completed ? "strike-text" : "")
               }
@@ -61,14 +60,21 @@ export class TodoItem extends Component {
                 checked={this.props.completed}
                 onChange={this.handleCompleted}
               />{" "}
-              {this.state.input}
+              <span onDoubleClick={this.props.completed ? "" : this.handleEdit}>
+                {this.state.input}
+              </span>
             </span>
           )}
         </span>
         <span className="center ">
           {this.state.edit ? (
             <span className="item-submit-btn">
-              <input type="button" value="submit" onClick={this.handleSubmit} />
+              <input
+                className="todotype-btn"
+                type="button"
+                value="submit"
+                onClick={this.handleSubmit}
+              />
             </span>
           ) : (
             ""
