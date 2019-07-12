@@ -7,8 +7,26 @@ export class TodoList extends Component {
     this.state = {};
   }
 
+  filterList = () => {
+    if (this.props.type === "all") {
+      return this.props.list;
+    }
+    if (this.props.type === "active") {
+      return this.props.list.filter(item => {
+        return !item.completed;
+      });
+    }
+    if (this.props.type === "completed") {
+      return this.props.list.filter(item => {
+        return item.completed;
+      });
+    }
+  };
+
   render() {
-    return this.props.list.map(item => {
+    let list = this.filterList();
+
+    return list.map(item => {
       return (
         <TodoItem
           key={item.id}
