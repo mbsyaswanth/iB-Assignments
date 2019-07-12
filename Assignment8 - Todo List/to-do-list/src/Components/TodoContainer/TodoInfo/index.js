@@ -14,7 +14,7 @@ function TodoInfo(props) {
   };
 
   return (
-    <div className="todo-actions-container">
+    <div className="todo-actions-container" style={{ display: props.display }}>
       <span className="active-count">{props.activeCount + " "}items left</span>
       <span>
         <button

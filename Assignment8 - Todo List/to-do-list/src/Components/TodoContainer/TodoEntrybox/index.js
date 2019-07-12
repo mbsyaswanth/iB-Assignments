@@ -33,6 +33,7 @@ export class TodoEntrybox extends Component {
       <form onSubmit={this.submitTodo}>
         <input
           className="todo-inputbox"
+          style={{ paddingLeft: "64px" }}
           value={this.state.input}
           onChange={this.updateInput}
           placeholder="What needs to be done?"

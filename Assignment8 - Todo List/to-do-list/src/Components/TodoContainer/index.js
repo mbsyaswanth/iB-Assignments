@@ -104,6 +104,7 @@ export class TodoContainer extends Component {
           />
           <TodoInfo
             currentType={this.state.listType}
+            display={this.state.todoList.length ? "flex" : "none"}
             activeCount={this.getActiveItemsCount()}
             changeListType={this.changeListType}
             clearList={this.clearAllCompleted}

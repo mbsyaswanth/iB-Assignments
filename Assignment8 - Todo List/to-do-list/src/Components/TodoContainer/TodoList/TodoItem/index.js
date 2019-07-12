@@ -40,26 +40,41 @@ export class TodoItem extends Component {
   render() {
     return (
       <div className="todo-item-container">
-        <span>
+        <span className="center ">
           {this.state.edit ? (
-            <input
-              className="todo-inputbox"
-              type="text"
-              value={this.state.input}
-              onChange={this.handleInputChange}
-            />
+            <span className="left-space">
+              <input
+                className="todo-inputbox"
+                type="text"
+                value={this.state.input}
+                onChange={this.handleInputChange}
+              />
+            </span>
           ) : (
             <span
               className={
                 "center " + (this.props.completed ? "strike-text" : "")
               }
             >
-              <input
+              <span className="center" onClick={this.handleCompleted}>
+                {this.props.completed ? (
+                  <img
+                    className="checkbox-img todo-item-checkbox"
+                    src="assets/checked.png"
+                  />
+                ) : (
+                  <img
+                    className="checkbox-img todo-item-checkbox"
+                    src="assets/checkbox-unchecked.png"
+                  />
+                )}
+              </span>
+              {/* <input
                 className="todo-item-checkbox"
                 type="checkbox"
                 checked={this.props.completed}
                 onChange={this.handleCompleted}
-              />{" "}
+              /> */}{" "}
               <span onDoubleClick={this.props.completed ? "" : this.handleEdit}>
                 {this.state.input}
               </span>
