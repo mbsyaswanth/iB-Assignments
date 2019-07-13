@@ -14,8 +14,7 @@ export class TodoContainer extends Component {
       listType: todoFilterTypes.all
     };
   }
-  //TODO: change functions names with prefix on.
-  OnAddToTodoList = itemObj => {
+  onAddToTodoList = itemObj => {
     let list = this.state.todoList;
     list.unshift(itemObj);
     this.setState({
@@ -23,7 +22,7 @@ export class TodoContainer extends Component {
     });
   };
 
-  OnEditIteminTodoList = (index, text) => {
+  onEditIteminTodoList = (index, text) => {
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -34,7 +33,7 @@ export class TodoContainer extends Component {
     this.setState({ todoList: list });
   };
 
-  OnEditItemCompletionStatus = (index, status) => {
+  onEditItemCompletionStatus = (index, status) => {
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -45,7 +44,7 @@ export class TodoContainer extends Component {
     this.setState({ todoList: list });
   };
 
-  OnDeleteIteminTodoList = index => {
+  onDeleteIteminTodoList = index => {
     if (window.confirm("Do you really want to delete this item?")) {
       let list = this.state.todoList;
       list.splice(this.getItemIndexinList(index), 1);
@@ -59,7 +58,7 @@ export class TodoContainer extends Component {
     });
   };
 
-  OnChangeListType = type => {
+  onChangeListType = type => {
     this.setState({
       listType: type
     });
@@ -73,7 +72,7 @@ export class TodoContainer extends Component {
     return count;
   };
 
-  OnClearAllCompleted = () => {
+  onClearAllCompleted = () => {
     let list = this.state.todoList.filter(item => {
       return !item.completed;
     });
@@ -86,20 +85,20 @@ export class TodoContainer extends Component {
       <div className="todo-container">
         <h2>todos</h2>
         <div className="todo-inner-container">
-          <TodoEntrybox addTodo={this.OnAddToTodoList} />
+          <TodoEntrybox addTodo={this.onAddToTodoList} />
           <TodoList
             list={this.state.todoList}
             type={this.state.listType}
-            editItem={this.OnEditIteminTodoList}
-            deleteItem={this.OnDeleteIteminTodoList}
-            editCompletionStatus={this.OnEditItemCompletionStatus}
+            editItem={this.onEditIteminTodoList}
+            deleteItem={this.onDeleteIteminTodoList}
+            editCompletionStatus={this.onEditItemCompletionStatus}
           />
           <TodoInfo
             currentType={this.state.listType}
             totalCount={this.state.todoList.length}
             activeCount={this.getActiveItemsCount()}
-            OnChangeListType={this.OnChangeListType}
-            clearList={this.OnClearAllCompleted}
+            onChangeListType={this.onChangeListType}
+            clearList={this.onClearAllCompleted}
           />
         </div>
       </div>

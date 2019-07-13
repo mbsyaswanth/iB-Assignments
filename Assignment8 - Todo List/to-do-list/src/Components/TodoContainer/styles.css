@@ -15,7 +15,7 @@
 }
 
 .left-space {
-  padding-left: 64px;
+  padding-left: 64px !important;
 }
 
 .invisible {

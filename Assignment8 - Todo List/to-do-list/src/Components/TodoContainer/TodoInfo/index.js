@@ -4,15 +4,15 @@ import todoFilterTypes from "../../constants";
 
 function TodoInfo(props) {
   const onAllClick = () => {
-    props.OnChangeListType(todoFilterTypes.all);
+    props.onChangeListType(todoFilterTypes.all);
   };
 
   const onActiveClick = () => {
-    props.OnChangeListType(todoFilterTypes.active);
+    props.onChangeListType(todoFilterTypes.active);
   };
 
   const onCompletedClick = () => {
-    props.OnChangeListType(todoFilterTypes.completed);
+    props.onChangeListType(todoFilterTypes.completed);
   };
 
   return (
@@ -27,7 +27,9 @@ function TodoInfo(props) {
         <button
           className={
             "todotype-btn " +
-            (props.currentType !== "all" ? "todo-btn-inactive" : "")
+            (props.currentType !== todoFilterTypes.all
+              ? "todo-btn-inactive"
+              : "")
           }
           onClick={onAllClick}
         >
@@ -36,7 +38,9 @@ function TodoInfo(props) {
         <button
           className={
             "todotype-btn " +
-            (props.currentType !== "active" ? "todo-btn-inactive" : "")
+            (props.currentType !== todoFilterTypes.active
+              ? "todo-btn-inactive"
+              : "")
           }
           onClick={onActiveClick}
         >
@@ -45,7 +49,9 @@ function TodoInfo(props) {
         <button
           className={
             "todotype-btn " +
-            (props.currentType !== "completed" ? "todo-btn-inactive" : "")
+            (props.currentType !== todoFilterTypes.completed
+              ? "todo-btn-inactive"
+              : "")
           }
           onClick={onCompletedClick}
         >

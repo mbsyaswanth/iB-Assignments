@@ -29,12 +29,10 @@ export class TodoEntrybox extends Component {
   };
 
   render() {
-    // TODO: eliminate inline style
     return (
       <form onSubmit={this.submitTodo}>
         <input
-          className="todo-inputbox"
-          style={{ paddingLeft: "64px" }}
+          className="left-space todo-inputbox "
           value={this.state.input}
           onChange={this.updateInput}
           placeholder="What needs to be done?"
