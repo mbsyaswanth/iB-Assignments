@@ -13,14 +13,13 @@ export class TodoContainer extends Component {
       listType: "all"
     };
   }
-
+  //TODO: change functions names with prefix on.
   addToTodoList = itemObj => {
     let list = this.state.todoList;
     list.unshift(itemObj);
     this.setState({
       todoList: list
     });
-    // this.state.todoList.concat(itemObj)
   };
 
   editIteminTodoList = (index, text) => {
@@ -34,10 +33,7 @@ export class TodoContainer extends Component {
     this.setState({ todoList: list });
   };
 
-  editItemStatus = (index, status) => {
-    //TODO: think about better name
-    console.log("status triggered");
-    console.log("status ", status);
+  editItemCompletionStatus = (index, status) => {
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -57,7 +53,6 @@ export class TodoContainer extends Component {
   };
 
   getItemIndexinList = id => {
-    //TODO: use find
     return this.state.todoList.findIndex(obj => {
       return obj.id === id;
     });
@@ -94,10 +89,9 @@ export class TodoContainer extends Component {
           <TodoList
             list={this.state.todoList}
             type={this.state.listType}
-            itemStatus={this.editItemStatus}
             editItem={this.editIteminTodoList}
             deleteItem={this.deleteIteminTodoList}
-            editStatus={this.editItemStatus}
+            editCompletionStatus={this.editItemCompletionStatus}
           />
           <TodoInfo
             currentType={this.state.listType}

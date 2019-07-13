@@ -61,8 +61,4 @@ function TodoInfo(props) {
   );
 }
 
-TodoInfo.defaultProps = {
-  activeCount: 1
-};
-
 export default TodoInfo;

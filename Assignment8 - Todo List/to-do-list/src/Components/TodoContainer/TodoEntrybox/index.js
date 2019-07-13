@@ -29,6 +29,7 @@ export class TodoEntrybox extends Component {
   };
 
   render() {
+    // TODO: eliminate inline style
     return (
       <form onSubmit={this.submitTodo}>
         <input

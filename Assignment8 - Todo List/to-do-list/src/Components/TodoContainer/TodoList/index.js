@@ -8,6 +8,7 @@ export class TodoList extends Component {
   }
 
   filterList = () => {
+    //move to parent
     if (this.props.type === "all") {
       return this.props.list;
     }
@@ -24,29 +25,21 @@ export class TodoList extends Component {
   };
 
   render() {
-    let list = this.filterList();
-
-    return list.map(item => {
+    //TODO: send item istead of its contents
+    return this.filterList().map(item => {
       return (
         <TodoItem
           key={item.id}
           id={item.id}
           todoText={item.todoText}
-          completed={item.completed}
+          isCompleted={item.completed}
           editItem={this.props.editItem}
           deleteItem={this.props.deleteItem}
-          editStatus={this.props.editStatus}
+          editStatus={this.props.editCompletionStatus}
         />
       );
     });
   }
 }
-
-TodoList.defaultProps = {
-  list: [
-    { todoText: "jjsdaggfhgfdhjgfdjhgjkhgdjkfkg", completed: false },
-    { todoText: "hello", completed: false }
-  ]
-};
 
 export default TodoList;

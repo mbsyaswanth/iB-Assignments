@@ -28,8 +28,8 @@ export class TodoItem extends Component {
   };
 
   handleCompleted = () => {
-    console.log(this.props.completed);
-    this.props.editStatus(this.props.id, !this.props.completed);
+    console.log(this.props.isCompleted);
+    this.props.editStatus(this.props.id, !this.props.isCompleted);
   };
 
   render() {
@@ -48,11 +48,11 @@ export class TodoItem extends Component {
           ) : (
             <span
               className={
-                "center " + (this.props.completed ? "strike-text" : "")
+                "center " + (this.props.isCompleted ? "strike-text" : "")
               }
             >
               <span className="center" onClick={this.handleCompleted}>
-                {this.props.completed ? (
+                {this.props.isCompleted ? (
                   <img
                     className="checkbox-img todo-item-checkbox"
                     src="assets/checked.png"
@@ -72,7 +72,7 @@ export class TodoItem extends Component {
               /> */}{" "}
               <span
                 className="edit-input"
-                onDoubleClick={this.props.completed ? "" : this.handleEdit}
+                onDoubleClick={this.props.isCompleted ? "" : this.handleEdit}
               >
                 {this.state.input}
               </span>
