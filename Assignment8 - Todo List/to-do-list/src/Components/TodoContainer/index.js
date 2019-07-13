@@ -35,6 +35,7 @@ export class TodoContainer extends Component {
   };
 
   editItemStatus = (index, status) => {
+    //TODO: think about better name
     console.log("status triggered");
     console.log("status ", status);
     let list = this.state.todoList;
@@ -56,14 +57,10 @@ export class TodoContainer extends Component {
   };
 
   getItemIndexinList = id => {
-    let i = 0;
-    let list = this.state.todoList;
-    while (true) {
-      if (list[i++].id === id) {
-        break;
-      }
-    }
-    return i - 1;
+    //TODO: use find
+    return this.state.todoList.findIndex(obj => {
+      return obj.id === id;
+    });
   };
 
   changeListType = type => {
@@ -104,7 +101,7 @@ export class TodoContainer extends Component {
           />
           <TodoInfo
             currentType={this.state.listType}
-            display={this.state.todoList.length ? "flex" : "none"}
+            totalCount={this.state.todoList.length}
             activeCount={this.getActiveItemsCount()}
             changeListType={this.changeListType}
             clearList={this.clearAllCompleted}

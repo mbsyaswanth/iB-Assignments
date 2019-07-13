@@ -15,7 +15,11 @@
 }
 
 .left-space {
-  padding-left: 42px;
+  padding-left: 64px;
+}
+
+.invisible {
+  display: none;
 }
 
 .todo-container {
@@ -47,6 +51,7 @@
   color: #f5f5f5;
   margin-right: 20px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .center {
@@ -98,4 +103,16 @@ h2 {
 .checkbox-img {
   height: 32px;
   width: 32px;
+}
+
+.edit-input {
+  width: 1202px;
+}
+
+.clr-item-btn {
+  margin-right: 20px;
+}
+
+.display-none {
+  display: none;
 }

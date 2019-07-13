@@ -21,15 +21,10 @@ export class TodoItem extends Component {
     this.setState({ input: event.target.value });
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
     this.setState({ edit: false });
-    if (window.confirm("do you want to confirm edits?")) {
-      this.props.editItem(this.props.id, this.state.input);
-    } else {
-      this.setState({
-        input: this.props.todoText
-      });
-    }
+    this.props.editItem(this.props.id, this.state.input);
+    event.preventDefault();
   };
 
   handleCompleted = () => {
@@ -42,14 +37,14 @@ export class TodoItem extends Component {
       <div className="todo-item-container">
         <span className="center ">
           {this.state.edit ? (
-            <span className="left-space">
+            <form className="left-space" onSubmit={this.handleSubmit}>
               <input
-                className="todo-inputbox"
+                className="todo-inputbox edit-input"
                 type="text"
                 value={this.state.input}
                 onChange={this.handleInputChange}
               />
-            </span>
+            </form>
           ) : (
             <span
               className={
@@ -75,29 +70,19 @@ export class TodoItem extends Component {
                 checked={this.props.completed}
                 onChange={this.handleCompleted}
               /> */}{" "}
-              <span onDoubleClick={this.props.completed ? "" : this.handleEdit}>
+              <span
+                className="edit-input"
+                onDoubleClick={this.props.completed ? "" : this.handleEdit}
+              >
                 {this.state.input}
               </span>
             </span>
           )}
         </span>
         <span className="center ">
-          {this.state.edit ? (
-            <span className="item-submit-btn">
-              <input
-                className="todotype-btn"
-                type="button"
-                value="submit"
-                onClick={this.handleSubmit}
-              />
-            </span>
-          ) : (
-            ""
-          )}
-
-          <span>
+          <span className="clr-item-btn">
             <input
-              className="item-delete-btn"
+              className={this.state.edit ? "invisible" : "item-delete-btn"}
               type="button"
               onClick={this.handleDelete}
               value="X"

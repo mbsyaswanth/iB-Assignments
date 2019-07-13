@@ -14,7 +14,14 @@ function TodoInfo(props) {
   };
 
   return (
-    <div className="todo-actions-container" style={{ display: props.display }}>
+    //TODO: change inline style and add class
+    <div
+      className={
+        "todo-actions-container " +
+        (props.totalCount === 0 ? "display-none" : "")
+      }
+      style={{ display: props.display }}
+    >
       <span className="active-count">{props.activeCount + " "}items left</span>
       <span>
         <button
