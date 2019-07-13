@@ -1,26 +1,26 @@
 import React from "react";
 
+import todoFilterTypes from "../../constants";
+
 function TodoInfo(props) {
   const onAllClick = () => {
-    props.changeListType("all");
+    props.OnChangeListType(todoFilterTypes.all);
   };
 
   const onActiveClick = () => {
-    props.changeListType("active");
+    props.OnChangeListType(todoFilterTypes.active);
   };
 
   const onCompletedClick = () => {
-    props.changeListType("completed");
+    props.OnChangeListType(todoFilterTypes.completed);
   };
 
   return (
-    //TODO: change inline style and add class
     <div
       className={
         "todo-actions-container " +
         (props.totalCount === 0 ? "display-none" : "")
       }
-      style={{ display: props.display }}
     >
       <span className="active-count">{props.activeCount + " "}items left</span>
       <span>

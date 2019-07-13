@@ -4,17 +4,18 @@ import TodoInfo from "./TodoInfo";
 import "./styles.css";
 import TodoList from "./TodoList";
 import TodoEntrybox from "./TodoEntrybox";
+import todoFilterTypes from "../constants";
 
 export class TodoContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todoList: [],
-      listType: "all"
+      listType: todoFilterTypes.all
     };
   }
   //TODO: change functions names with prefix on.
-  addToTodoList = itemObj => {
+  OnAddToTodoList = itemObj => {
     let list = this.state.todoList;
     list.unshift(itemObj);
     this.setState({
@@ -22,7 +23,7 @@ export class TodoContainer extends Component {
     });
   };
 
-  editIteminTodoList = (index, text) => {
+  OnEditIteminTodoList = (index, text) => {
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -33,7 +34,7 @@ export class TodoContainer extends Component {
     this.setState({ todoList: list });
   };
 
-  editItemCompletionStatus = (index, status) => {
+  OnEditItemCompletionStatus = (index, status) => {
     let list = this.state.todoList;
     let itemIndex = this.getItemIndexinList(index);
     list[itemIndex] = {
@@ -44,7 +45,7 @@ export class TodoContainer extends Component {
     this.setState({ todoList: list });
   };
 
-  deleteIteminTodoList = index => {
+  OnDeleteIteminTodoList = index => {
     if (window.confirm("Do you really want to delete this item?")) {
       let list = this.state.todoList;
       list.splice(this.getItemIndexinList(index), 1);
@@ -58,7 +59,7 @@ export class TodoContainer extends Component {
     });
   };
 
-  changeListType = type => {
+  OnChangeListType = type => {
     this.setState({
       listType: type
     });
@@ -72,7 +73,7 @@ export class TodoContainer extends Component {
     return count;
   };
 
-  clearAllCompleted = () => {
+  OnClearAllCompleted = () => {
     let list = this.state.todoList.filter(item => {
       return !item.completed;
     });
@@ -85,20 +86,20 @@ export class TodoContainer extends Component {
       <div className="todo-container">
         <h2>todos</h2>
         <div className="todo-inner-container">
-          <TodoEntrybox addTodo={this.addToTodoList} />
+          <TodoEntrybox addTodo={this.OnAddToTodoList} />
           <TodoList
             list={this.state.todoList}
             type={this.state.listType}
-            editItem={this.editIteminTodoList}
-            deleteItem={this.deleteIteminTodoList}
-            editCompletionStatus={this.editItemCompletionStatus}
+            editItem={this.OnEditIteminTodoList}
+            deleteItem={this.OnDeleteIteminTodoList}
+            editCompletionStatus={this.OnEditItemCompletionStatus}
           />
           <TodoInfo
             currentType={this.state.listType}
             totalCount={this.state.todoList.length}
             activeCount={this.getActiveItemsCount()}
-            changeListType={this.changeListType}
-            clearList={this.clearAllCompleted}
+            OnChangeListType={this.OnChangeListType}
+            clearList={this.OnClearAllCompleted}
           />
         </div>
       </div>

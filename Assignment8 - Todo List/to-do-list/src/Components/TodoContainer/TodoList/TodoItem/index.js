@@ -5,12 +5,12 @@ export class TodoItem extends Component {
     super(props);
     this.state = {
       edit: false,
-      input: this.props.todoText
+      input: this.props.item.todoText
     };
   }
 
   handleDelete = () => {
-    this.props.deleteItem(this.props.id);
+    this.props.deleteItem(this.props.item.id);
   };
 
   handleEdit = () => {
@@ -23,13 +23,13 @@ export class TodoItem extends Component {
 
   handleSubmit = event => {
     this.setState({ edit: false });
-    this.props.editItem(this.props.id, this.state.input);
+    this.props.editItem(this.props.item.id, this.state.input);
     event.preventDefault();
   };
 
   handleCompleted = () => {
     console.log(this.props.isCompleted);
-    this.props.editStatus(this.props.id, !this.props.isCompleted);
+    this.props.editStatus(this.props.item.id, !this.props.isCompleted);
   };
 
   render() {

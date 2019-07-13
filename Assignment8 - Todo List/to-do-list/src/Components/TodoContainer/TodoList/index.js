@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import TodoItem from "./TodoItem";
+import todoFilterTypes from "../../constants";
 
 export class TodoList extends Component {
   constructor(props) {
@@ -9,15 +11,15 @@ export class TodoList extends Component {
 
   filterList = () => {
     //move to parent
-    if (this.props.type === "all") {
+    if (this.props.type === todoFilterTypes.all) {
       return this.props.list;
     }
-    if (this.props.type === "active") {
+    if (this.props.type === todoFilterTypes.active) {
       return this.props.list.filter(item => {
         return !item.completed;
       });
     }
-    if (this.props.type === "completed") {
+    if (this.props.type === todoFilterTypes.completed) {
       return this.props.list.filter(item => {
         return item.completed;
       });
@@ -25,13 +27,11 @@ export class TodoList extends Component {
   };
 
   render() {
-    //TODO: send item istead of its contents
     return this.filterList().map(item => {
       return (
         <TodoItem
           key={item.id}
-          id={item.id}
-          todoText={item.todoText}
+          item={item}
           isCompleted={item.completed}
           editItem={this.props.editItem}
           deleteItem={this.props.deleteItem}
