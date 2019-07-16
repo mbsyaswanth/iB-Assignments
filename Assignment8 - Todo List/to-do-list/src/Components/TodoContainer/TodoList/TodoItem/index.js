@@ -43,6 +43,7 @@ export class TodoItem extends Component {
                 type="text"
                 value={this.state.input}
                 onChange={this.handleInputChange}
+                autoFocus
               />
             </form>
           ) : (

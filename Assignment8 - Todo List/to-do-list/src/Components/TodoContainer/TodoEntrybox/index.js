@@ -36,6 +36,7 @@ export class TodoEntrybox extends Component {
           value={this.state.input}
           onChange={this.updateInput}
           placeholder="What needs to be done?"
+          autoFocus
         />
       </form>
     );
