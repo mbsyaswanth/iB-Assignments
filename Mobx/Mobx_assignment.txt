@@ -1,0 +1,10 @@
+Mobx Assignment
+----------------------
+
+> All tasks should be done using mobx only
+
+1) Counter
+    - Increment and decrement of a number
+2) Product Table example
+    - Implement using local component state
+
