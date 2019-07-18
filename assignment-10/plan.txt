@@ -1,0 +1,96 @@
+components - ShoppingSite  ProductsContainer, Product , 
+
+		CartContainer, CartItem
+		sizeFilters, sizeViewer(X)
+
+
+models - product , cartItem 
+
+store - products
+
+------------------------------------------
+ store - products
+
+@observable - cart , products , sizes , orderby 
+
+constants - orderby
+
+@action - addToCart, removeFromCart, addProduct, 		updateSizeFilters, 
+	 
+	updateOrderby , 
+
+@computed - filteredProducts , cartItemsCount , 		   		    filteredProductCount , totalCartValue, isCartEmpty
+		
+methods - getProduct(id) , isAlreadyInCart(id) 
+
+{
+  cart:[],
+  products:[],
+  sizes:[],
+}
+
+---------------------------------------------
+model - cartItem 
+
+@observable - Quantity
+
+@action - increaseQty 
+
+{
+  itemId: ,
+  quantity:
+}
+
+------------------------------------------------
+model product
+
+{
+      "availableSizes": [
+        "X",
+        "L",
+        "XL"
+      ],
+      "currencyFormat": "$",
+      "currencyId": "USD",
+      "description": "14/15 + Camiseta 1º Mundial",
+      "id": 5,
+      "installments": 9,
+      "isFreeShipping": false,
+      "price": 10.9,
+      "sku": 10547961582846888,
+      "style": "Preto",
+      "title": "Tso 3D Short Sleeve T-Shirt A",
+      "image":"https://react-shopping-cart-67954.firebaseapp.com/static/media/6090484789343891_1.45a051e0.jpg"
+
+}
+
+------------------------------------------------------------------
+
+sub tasts
+----------
+ - folder structure -10mins 12:51 - 13:04
+1) models - product, cartItem - 20mins 13:05 - 13:28
+
+2) store - products - 60mins 13:34 - 13:36 14:36 - 
+
+3) component - ShoppingSite - 20mins
+		- orderby
+
+4) component - Product - 40mins
+
+5) component - ProductsContainer - 15mins
+
+6) component - CartItem - 20mins
+
+7) component - CartContainer - 60mins - car container animation
+
+8) component - sizeFilters - 10mins
+
+9) component - sizeViewer - 10mins
+
+
+
+
+
+
+
