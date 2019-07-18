@@ -1,0 +1,20 @@
+.shopping-site-container {
+  padding-top: 50px;
+  display: flex;
+}
+
+.filters-sidebar {
+  width: 25%;
+  background-color: aqua;
+}
+
+.main-content-container {
+  width: 75%;
+  background-color: beige;
+}
+
+.sort-by {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

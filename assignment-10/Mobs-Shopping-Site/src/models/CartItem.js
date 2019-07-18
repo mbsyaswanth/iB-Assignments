@@ -1,7 +1,6 @@
 import { observer } from "mobx-react";
 import { action, computed, observable } from "mobx";
 
-@observer
 class CartItem {
   @observable quantity;
   constructor(itemId) {

@@ -21,7 +21,7 @@ constants - orderby
 
 @computed - filteredProducts , cartItemsCount , 		   		    filteredProductCount , totalCartValue, isCartEmpty
 		
-methods - getProduct(id) , isAlreadyInCart(id) 
+methods - getProduct(id) , isAlreadyInCart(id)(x) , getIndexInCart
 
 {
   cart:[],
@@ -71,10 +71,16 @@ sub tasts
  - folder structure -10mins 12:51 - 13:04
 1) models - product, cartItem - 20mins 13:05 - 13:28
 
-2) store - products - 60mins 13:34 - 13:36 14:36 - 
+2) store - products - 60mins 13:34 - 13:36 15:46 - 17:30
 
-3) component - ShoppingSite - 20mins
+3) component - ShoppingSite - 20mins 20:07 - 20:31 
 		- orderby
+
+		     div
+			-div (30%)
+			-div (70%)
+			   -div (product count - orderby)
+
 
 4) component - Product - 40mins
 
