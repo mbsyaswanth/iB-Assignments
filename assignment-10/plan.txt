@@ -81,18 +81,37 @@ sub tasts
 			-div (70%)
 			   -div (product count - orderby)
 
+- debugging store - filtered products - 30mins 9:36 - 9:52
 
-4) component - Product - 40mins
 
-5) component - ProductsContainer - 15mins
+4) component - Product - 60mins - 10:07 - 11:04
+div
+ -div(img)
+  -img
+ -div(desc)
+   -div (name 2)
+   -div (price)
+   -div (installments)
+   -div (add to cart button)
 
-6) component - CartItem - 20mins
+
+5) component - ProductsContainer - 20mins 11:30 - 11:50
+
+map
+
+6) component - CartItem - 60mins 16:00
 
 7) component - CartContainer - 60mins - car container animation
 
-8) component - sizeFilters - 20mins
+15:00 - 15:57
 
-9) component - sizeViewer - 20mins
+8) component - sizeFilters - 20mins + 20mins + 30mins - 11:52 - 12:47
+
+debug - products -sizefilters - 40mins 12:50 - 13:04
+
+9) integration - orderby - 10mins 13:10
+
+debug orderby - products - 20mins - done at 14:48 (after break)
 
 
 

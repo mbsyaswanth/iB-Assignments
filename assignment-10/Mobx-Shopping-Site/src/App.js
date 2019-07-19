@@ -7,7 +7,7 @@ import Products from "./Store";
 
 let store = new Products();
 
-let products = {
+let productsdata = {
   products: [
     {
       availableSizes: ["S", "XS"],
@@ -252,7 +252,7 @@ let products = {
   ]
 };
 
-products.products.forEach(product => {
+productsdata.products.forEach(product => {
   store.addProduct(product);
 });
 console.log(store.products);
@@ -260,7 +260,7 @@ console.log(store.products);
 function App() {
   return (
     <div>
-      <ShoppingSite store={new Products()} />
+      <ShoppingSite store={store} />
     </div>
   );
 }

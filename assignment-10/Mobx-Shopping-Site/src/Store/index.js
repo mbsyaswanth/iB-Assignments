@@ -12,7 +12,9 @@ class Products {
 
   @action addToCart = id => {
     let index = this.getIndexInCart(id);
-    if (index) {
+    console.log("adding to cart", index);
+    if (index >= 0) {
+      console.log("increasing qty");
       this.cart[index].increaseQty();
       return;
     }
@@ -28,7 +30,7 @@ class Products {
   };
   //TODO: make constants for sizes, orderby
   @action updateSizeFilters = size => {
-    if (this.sizes.includes[size]) {
+    if (this.sizes.includes(size)) {
       this.sizes.splice(this.sizes.indexOf(size), 1);
       return;
     }
@@ -40,28 +42,35 @@ class Products {
   };
 
   @computed get cartItemsCount() {
-    return this.cart.length;
+    if (this.cart.length === 0) {
+      return 0;
+    }
+    return this.cart.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.quantity;
+    }, 0);
   }
 
   @computed get filteredProducts() {
     let allProducts = this.products;
     if (!this.sizes.length && this.orderBy === "") {
-      return;
+      return allProducts;
     }
+    console.log(this.orderBy);
     if (this.orderBy === "lh") {
-      allProducts.sort((a, b) => {
-        return a.price < b.price;
+      console.log("in lh");
+      allProducts = allProducts.sort((a, b) => {
+        return a.price - b.price;
       });
     }
     if (this.orderBy === "hl") {
-      this.allProducts.sort((a, b) => {
-        return a.price > b.price;
+      allProducts = allProducts.sort((a, b) => {
+        return b.price - a.price;
       });
     }
     if (this.sizes.length) {
-      this.allProducts.filter(product => {
+      allProducts = allProducts.filter(product => {
         for (let i = 0; i < this.sizes.length; i++) {
-          if (product.availableSizes.includes[this.sizes[i]]) {
+          if (product.availableSizes.includes(this.sizes[i])) {
             return true;
           }
         }
@@ -76,13 +85,16 @@ class Products {
   }
 
   @computed get totalCartValue() {
+    if (this.cart.length === 0) {
+      return "0.00";
+    }
     return this.cart.reduce((accumulator, currentValue) => {
       return (
         accumulator +
         currentValue.quantity *
           this.products[this.getIndexInProducts(currentValue.itemId)].price
       );
-    });
+    }, 0);
   }
 
   getProduct = id => {
