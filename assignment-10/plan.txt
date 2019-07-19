@@ -90,9 +90,9 @@ sub tasts
 
 7) component - CartContainer - 60mins - car container animation
 
-8) component - sizeFilters - 10mins
+8) component - sizeFilters - 20mins
 
-9) component - sizeViewer - 10mins
+9) component - sizeViewer - 20mins
 
 
 

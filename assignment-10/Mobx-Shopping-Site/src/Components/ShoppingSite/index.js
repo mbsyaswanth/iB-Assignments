@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import SizeFilters from "./SizeFilters";
+import ProductsContainer from "./ProductsContainer";
 import "./styles.css";
 
 class ShoppingSite extends Component {
@@ -9,7 +10,7 @@ class ShoppingSite extends Component {
       <div className="shopping-site-container">
         <div className="filters-sidebar">
           <h3>Sizes:</h3>
-          <SizeFilters />
+          <SizeFilters onfiltersclick={this.props.store.updateSizeFilters} />
         </div>
         <div className="main-content-container">
           <div className="sort-by">
@@ -23,6 +24,9 @@ class ShoppingSite extends Component {
               </select>
             </div>
           </div>
+          <ProductsContainer
+            filteredProducts={this.props.store.filteredProducts}
+          />
         </div>
       </div>
     );
