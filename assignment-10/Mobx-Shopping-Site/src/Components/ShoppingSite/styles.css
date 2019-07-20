@@ -295,3 +295,7 @@
   padding-right: 5px;
   cursor: pointer;
 }
+
+.cross-mark:hover .cart-item-info {
+  text-decoration: line-through;
+}

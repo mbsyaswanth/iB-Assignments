@@ -11,22 +11,6 @@ class Products {
   @observable orderBy = "";
 
   @action addToCart = (id, size) => {
-    // let index = this.getIndexInCart(id);
-    // if (index >= 0) {
-    //   this.cart.forEach((item, itemIndex) => {
-    //     if (item.itemId === id) {
-    //       console.log("same id found", itemIndex);
-    //       if (item.size === size) {
-    //         console.log("increasing qty");
-    //         item.increaseQty();
-    //         return;
-    //       } else if (itemIndex === this.cart.length - 1) {
-    //         this.cart.push(new CartItem(id, size));
-    //       }
-    //     }
-    //   });
-    // }
-
     if (
       this.cart.some((item, itemIndex) => {
         if (item.itemId === id && item.size === size) {
@@ -37,18 +21,7 @@ class Products {
       })
     ) {
       return;
-    }
-
-    // console.log("adding to cart", index);
-    // if (index >= 0) {
-    //   if (this.cart[index].size === size) {
-    //     console.log("increasing qty");
-    //     this.cart[index].increaseQty();
-    //     return;
-    //   }
-    // }
-    // console.log("pusing as new item");
-    else {
+    } else {
       console.log("in else push new item");
       this.cart.push(new CartItem(id, size));
     }
