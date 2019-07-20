@@ -1,8 +1,19 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { action, computed, observable } from "mobx";
 
+@observer
 class Product extends Component {
+  @observable size = this.props.product.availableSizes[0];
+
+  onSizeChange = event => {
+    console.log(event.target.value);
+    this.size = event.target.value;
+  };
+
   handleClick = () => {
-    this.props.store.addToCart(this.props.product.id);
+    console.log("add to cart button", this.size);
+    this.props.store.addToCart(this.props.product.id, this.size);
   };
 
   render() {
@@ -27,6 +38,17 @@ class Product extends Component {
             {(
               this.props.product.price / this.props.product.installments
             ).toFixed(2)}
+          </div>
+          <div className="sizes-available">
+            <select value={this.size} onChange={this.onSizeChange}>
+              {this.props.product.availableSizes.map(size => {
+                return (
+                  <option value={size} key={size}>
+                    {size}
+                  </option>
+                );
+              })}
+            </select>
           </div>
         </div>
         <button onClick={this.handleClick} className="product-cart-btn">

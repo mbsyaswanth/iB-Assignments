@@ -10,19 +10,56 @@ class Products {
   @observable sizes = [];
   @observable orderBy = "";
 
-  @action addToCart = id => {
-    let index = this.getIndexInCart(id);
-    console.log("adding to cart", index);
-    if (index >= 0) {
-      console.log("increasing qty");
-      this.cart[index].increaseQty();
+  @action addToCart = (id, size) => {
+    // let index = this.getIndexInCart(id);
+    // if (index >= 0) {
+    //   this.cart.forEach((item, itemIndex) => {
+    //     if (item.itemId === id) {
+    //       console.log("same id found", itemIndex);
+    //       if (item.size === size) {
+    //         console.log("increasing qty");
+    //         item.increaseQty();
+    //         return;
+    //       } else if (itemIndex === this.cart.length - 1) {
+    //         this.cart.push(new CartItem(id, size));
+    //       }
+    //     }
+    //   });
+    // }
+
+    if (
+      this.cart.some((item, itemIndex) => {
+        if (item.itemId === id && item.size === size) {
+          item.increaseQty();
+          return true;
+        }
+        return false;
+      })
+    ) {
       return;
     }
-    this.cart.push(new CartItem(id));
+
+    // console.log("adding to cart", index);
+    // if (index >= 0) {
+    //   if (this.cart[index].size === size) {
+    //     console.log("increasing qty");
+    //     this.cart[index].increaseQty();
+    //     return;
+    //   }
+    // }
+    // console.log("pusing as new item");
+    else {
+      console.log("in else push new item");
+      this.cart.push(new CartItem(id, size));
+    }
   };
 
-  @action removeFromCart = id => {
-    this.cart.splice(this.getIndexInCart(id), 1);
+  @action removeFromCart = item => {
+    this.cart.forEach((cartItem, index) => {
+      if (cartItem === item) {
+        this.cart.splice(index, 1);
+      }
+    });
   };
 
   @action addProduct = obj => {
@@ -88,13 +125,15 @@ class Products {
     if (this.cart.length === 0) {
       return "0.00";
     }
-    return this.cart.reduce((accumulator, currentValue) => {
-      return (
-        accumulator +
-        currentValue.quantity *
-          this.products[this.getIndexInProducts(currentValue.itemId)].price
-      );
-    }, 0);
+    return this.cart
+      .reduce((accumulator, currentValue) => {
+        return (
+          accumulator +
+          currentValue.quantity *
+            this.products[this.getIndexInProducts(currentValue.itemId)].price
+        );
+      }, 0)
+      .toFixed(2);
   }
 
   getProduct = id => {

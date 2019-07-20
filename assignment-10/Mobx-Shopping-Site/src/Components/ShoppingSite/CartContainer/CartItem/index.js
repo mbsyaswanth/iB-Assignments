@@ -4,7 +4,7 @@ import { action, computed, observable } from "mobx";
 @observer
 class CartItem extends Component {
   handleRemove = () => {
-    this.props.store.removeFromCart(this.props.id);
+    this.props.store.removeFromCart(this.props.cartItem);
   };
 
   render() {
@@ -26,7 +26,7 @@ class CartItem extends Component {
             <div className="item-info">
               <div className="item-name">{this.props.product.title}</div>
               <div className="size-style">
-                {this.props.product.availableSizes[0]}
+                {this.props.size} | {this.props.product.style}
               </div>
               <div className="item-qty">Quantity : {this.props.quantity}</div>
             </div>

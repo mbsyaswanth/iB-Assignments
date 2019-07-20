@@ -3,8 +3,9 @@ import { action, computed, observable } from "mobx";
 
 class CartItem {
   @observable quantity;
-  constructor(itemId) {
+  constructor(itemId, size) {
     this.itemId = itemId;
+    this.size = size;
     this.quantity = 1;
   }
 

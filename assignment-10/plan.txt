@@ -109,9 +109,18 @@ map
 
 debug - products -sizefilters - 40mins 12:50 - 13:04
 
-9) integration - orderby - 10mins 13:10
+9) integration - orderby - 10mins 13:10 done by 9:00 (total done)
 
 debug orderby - products - 20mins - done at 14:48 (after break)
+
+10) select size for each item before adding to cart.   - 9:30am - 
+  - send size along with id to store while adding to cart.
+  - cart item model should have size.
+  - in addToCart action, if the item with same id already exists then check size: 
+      if same size - increase qty
+      if diff size - push as new item to cart
+  
+
 
 
 

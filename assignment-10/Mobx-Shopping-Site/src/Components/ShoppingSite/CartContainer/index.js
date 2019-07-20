@@ -50,6 +50,8 @@ class CartContainer extends Component {
                     product={this.props.store.getProduct(item.itemId)}
                     store={this.props.store}
                     quantity={item.quantity}
+                    size={item.size}
+                    cartItem={item}
                   />
                 );
               })}
