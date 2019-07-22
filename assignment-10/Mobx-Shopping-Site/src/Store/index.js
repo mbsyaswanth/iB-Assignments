@@ -37,16 +37,20 @@ class Products {
   };
 
   @action fetchData = () => {
-    fetch("https://demo8129378.mockable.io/products/all/v1").then(result => {
-      if (result.ok) {
-        this.loadingStatus = "success";
-        result.json().products.forEach(product => {
+    fetch("https://demo8129378.mockable.io/products/all/v1")
+      .then(result => {
+        if (result.ok) {
+          this.loadingStatus = "success";
+          return result.json();
+        } else {
+          this.loadingStatus = "fail";
+        }
+      })
+      .then(json =>
+        json.products.forEach(product => {
           this.addProduct(product);
-        });
-      } else {
-        this.loadingStatus = "fail";
-      }
-    });
+        })
+      );
   };
 
   @action addProduct = obj => {
