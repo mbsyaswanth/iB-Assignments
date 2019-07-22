@@ -10,6 +10,7 @@ class Products {
   @observable sizes = [];
   @observable orderBy = "";
   @observable loadingStatus = "loading";
+  @observable errorMsg = "";
 
   @action addToCart = (id, size) => {
     if (
@@ -40,17 +41,21 @@ class Products {
     fetch("https://demo8129378.mockable.io/products/all/v1")
       .then(result => {
         if (result.ok) {
-          this.loadingStatus = "success";
           return result.json();
         } else {
           this.loadingStatus = "fail";
         }
       })
-      .then(json =>
+      .then(json => {
         json.products.forEach(product => {
           this.addProduct(product);
-        })
-      );
+        });
+        this.loadingStatus = "success";
+      })
+      .catch(err => {
+        console.log("Ooops, error", err.message);
+        this.loadingStatus = "fail";
+      });
   };
 
   @action addProduct = obj => {
