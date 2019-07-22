@@ -1,0 +1,17 @@
+
+in store
+    @observable - isLoading
+
+-> productsToDisplay()
+
+ - initially isLoading is true ---> return loading..... 
+
+ - fetch() - result is ok -> send all products to store and display them (if no products -- display no products) using filteredProducts... (set isloading to false)
+
+          - result is not ok -> return error.
+
+---------------------------------------------------------------------------------
+
+
+
+

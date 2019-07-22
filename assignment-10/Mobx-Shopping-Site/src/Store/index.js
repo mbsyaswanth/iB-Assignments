@@ -9,6 +9,7 @@ class Products {
   @observable products = [];
   @observable sizes = [];
   @observable orderBy = "";
+  @observable loadingStatus = "loading";
 
   @action addToCart = (id, size) => {
     if (
@@ -31,6 +32,19 @@ class Products {
     this.cart.forEach((cartItem, index) => {
       if (cartItem === item) {
         this.cart.splice(index, 1);
+      }
+    });
+  };
+
+  @action fetchData = () => {
+    fetch("https://demo8129378.mockable.io/products/all/v1").then(result => {
+      if (result.ok) {
+        this.loadingStatus = "success";
+        result.json().products.forEach(product => {
+          this.addProduct(product);
+        });
+      } else {
+        this.loadingStatus = "fail";
       }
     });
   };
