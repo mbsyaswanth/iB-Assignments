@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import { action, computed, observable } from "mobx";
+
+import {
+  StyledCartItem,
+  CartItemImage,
+  CartItemInfoWrapper,
+  CrossMark,
+  CartItemInfo,
+  ItemName,
+  ItemPrice,
+  Grey
+} from "./styledComponents";
 @observer
 class CartItem extends Component {
   handleRemove = () => {
@@ -9,36 +19,27 @@ class CartItem extends Component {
 
   render() {
     return (
-      <div className="cart-item">
-        <div className="cart-item-image-wrapper">
-          <img
-            className="cart-item-image"
-            alt="cartitem"
-            src={this.props.product.image}
-          />
+      <StyledCartItem>
+        <div>
+          <CartItemImage alt="cartitem" src={this.props.product.image} />
         </div>
-        <div className="cart-item-info-wrapper">
-          <span className="cross-mark" onClick={this.handleRemove}>
-            x
-          </span>
-          <div className="cart-item-del-wrapper" />
-          <div className="cart-item-info">
-            <div className="item-info">
-              <div className="item-name">{this.props.product.title}</div>
-              <div className="cartItem.-style">
+        <CartItemInfoWrapper>
+          <CrossMark onClick={this.handleRemove}>x</CrossMark>
+          <CartItemInfo>
+            <div>
+              <ItemName>{this.props.product.title}</ItemName>
+              <Grey>
                 {this.props.cartItem.size} | {this.props.product.style}
-              </div>
-              <div className="item-qty">
-                cartItem. : {this.props.cartItem.quantity}
-              </div>
+              </Grey>
+              <Grey>cartItem. : {this.props.cartItem.quantity}</Grey>
             </div>
-            <div className="item-price">
+            <ItemPrice>
               <span>$</span>
               {this.props.product.price}
-            </div>
-          </div>
-        </div>
-      </div>
+            </ItemPrice>
+          </CartItemInfo>
+        </CartItemInfoWrapper>
+      </StyledCartItem>
     );
   }
 }

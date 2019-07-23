@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import SizeFilters from "./SizeFilters";
 import ProductsContainer from "./ProductsContainer";
 import CartContainer from "./CartContainer";
-import "./styles.css";
 
 import {
   ShoppingSiteContainer,

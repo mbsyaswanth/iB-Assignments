@@ -3,6 +3,24 @@ import { observer } from "mobx-react";
 import { action, computed, observable } from "mobx";
 import CartItem from "../CartContainer/CartItem";
 
+import {
+  StyledCartContainer,
+  CartToggle,
+  CartCount,
+  CartItemsContainer,
+  InsideCartCount,
+  CartItemsInnerWrap,
+  CartIconInCart,
+  CartIcon,
+  InCartIcon,
+  CartText,
+  CartSubtotal,
+  SubTotal,
+  SubTotalText,
+  SubTotalCount,
+  Checkout
+} from "./styledComponents";
+
 @observer
 class CartContainer extends Component {
   @observable isClicked = false;
@@ -11,36 +29,30 @@ class CartContainer extends Component {
   };
 
   @computed get cartIcon() {
-    let cart = (
-      <img alt="carticon" className="cart-image" src="assets/cart.png" />
-    );
+    let cart = <CartIcon alt="carticon" src="assets/cart.png" />;
     return this.isClicked ? "x" : cart;
   }
 
   render() {
     return (
-      <div className={"cart-container " + (this.isClicked ? "cart-show" : "")}>
-        <div onClick={this.cartClick} className="cart-toggle">
+      <StyledCartContainer isClicked={this.isClicked}>
+        <CartToggle onClick={this.cartClick}>
           {this.cartIcon}
-          <span className={this.isClicked ? "display-none" : "cart-count"}>
+          <CartCount show={!this.isClicked}>
             {this.props.store.cartItemsCount}
-          </span>
-        </div>
-        <div className="cart-items-container">
-          <div className="cart-items-inner-wrap">
-            <div className="cart-icon-in-cart">
-              <div className="cart-toggle">
-                <img
-                  alt="carticon"
-                  className="cart-image in-cart-image"
-                  src="assets/cart.png"
-                />
-                <span className="cart-count">
+          </CartCount>
+        </CartToggle>
+        <CartItemsContainer>
+          <CartItemsInnerWrap>
+            <CartIconInCart>
+              <CartToggle>
+                <InCartIcon alt="carticon" src="assets/cart.png" />
+                <InsideCartCount>
                   {this.props.store.cartItemsCount}
-                </span>
-              </div>
-              <div className="cart-text">Cart</div>
-            </div>
+                </InsideCartCount>
+              </CartToggle>
+              <CartText>Cart</CartText>
+            </CartIconInCart>
             <div className="cart-items-wrapper">
               {this.props.store.cart.map(item => {
                 return (
@@ -53,19 +65,19 @@ class CartContainer extends Component {
                 );
               })}
             </div>
-          </div>
-          <div className="cart-subtotal">
-            <div className="sub-total">
-              <span className="sub-total-text">SUBTOTAL</span>
-              <span className="sub-total-count">
+          </CartItemsInnerWrap>
+          <CartSubtotal>
+            <SubTotal>
+              <SubTotalText>SUBTOTAL</SubTotalText>
+              <SubTotalCount>
                 <span>$</span>
                 {this.props.store.totalCartValue}
-              </span>
-            </div>
-            <div className="checkout">CHECKOUT</div>
-          </div>
-        </div>
-      </div>
+              </SubTotalCount>
+            </SubTotal>
+            <Checkout>CHECKOUT</Checkout>
+          </CartSubtotal>
+        </CartItemsContainer>
+      </StyledCartContainer>
     );
   }
 }
