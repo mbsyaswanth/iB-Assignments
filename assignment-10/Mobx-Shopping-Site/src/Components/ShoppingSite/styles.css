@@ -2,7 +2,7 @@
   padding-top: 50px;
   display: flex;
 }
-
+/* TODO: seperate styles for each component */
 .filters-sidebar {
   width: 15%;
   padding-right: 5px;

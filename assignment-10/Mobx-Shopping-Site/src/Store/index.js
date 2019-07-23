@@ -10,7 +10,6 @@ class Products {
   @observable sizes = [];
   @observable orderBy = "";
   @observable loadingStatus = "loading";
-  @observable errorMsg = "";
 
   @action addToCart = (id, size) => {
     if (
@@ -96,12 +95,15 @@ class Products {
       });
     }
     if (this.orderBy === "hl") {
+      console.log("in h1");
       allProducts = allProducts.sort((a, b) => {
         return b.price - a.price;
       });
     }
     if (this.sizes.length) {
+      console.log("in filter upon");
       allProducts = allProducts.filter(product => {
+        // TODO: try to eliminate for
         for (let i = 0; i < this.sizes.length; i++) {
           if (product.availableSizes.includes(this.sizes[i])) {
             return true;
@@ -141,7 +143,7 @@ class Products {
       return product.id === id;
     });
   };
-
+  // TODO: remove this method - its not used anywhere
   getIndexInCart = id => {
     return this.cart.findIndex(item => {
       return item.itemId === id;

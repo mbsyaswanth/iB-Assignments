@@ -6,7 +6,6 @@ import CartContainer from "./CartContainer";
 import "./styles.css";
 
 import { observer } from "mobx-react";
-import { action, computed, observable } from "mobx";
 
 @observer
 class ShoppingSite extends Component {
@@ -38,6 +37,7 @@ class ShoppingSite extends Component {
                   value={this.props.store.orderBy}
                   onChange={this.handleOrderChange}
                 >
+                  {/* TODO: make lh hl as constants */}
                   <option value="select">select</option>
                   <option value="lh">low to high</option>
                   <option value="hl">high to low</option>

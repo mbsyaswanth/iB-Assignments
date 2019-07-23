@@ -10,7 +10,7 @@ class CartContainer extends Component {
     this.isClicked = !this.isClicked;
   };
 
-  @computed get loadIcon() {
+  @computed get cartIcon() {
     let cart = (
       <img alt="carticon" className="cart-image" src="assets/cart.png" />
     );
@@ -21,7 +21,7 @@ class CartContainer extends Component {
     return (
       <div className={"cart-container " + (this.isClicked ? "cart-show" : "")}>
         <div onClick={this.cartClick} className="cart-toggle">
-          {this.loadIcon}
+          {this.cartIcon}
           <span className={this.isClicked ? "display-none" : "cart-count"}>
             {this.props.store.cartItemsCount}
           </span>
@@ -46,11 +46,8 @@ class CartContainer extends Component {
                 return (
                   <CartItem
                     key={item.id}
-                    id={item.itemId}
                     product={this.props.store.getProduct(item.itemId)}
                     store={this.props.store}
-                    quantity={item.quantity}
-                    size={item.size}
                     cartItem={item}
                   />
                 );

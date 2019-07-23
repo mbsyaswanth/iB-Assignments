@@ -5,7 +5,7 @@ import { action, computed, observable } from "mobx";
 @observer
 class Product extends Component {
   @observable size = this.props.product.availableSizes[0];
-
+  //TODO: use destructuring
   onSizeChange = event => {
     console.log(event.target.value);
     this.size = event.target.value;

@@ -25,10 +25,12 @@ class CartItem extends Component {
           <div className="cart-item-info">
             <div className="item-info">
               <div className="item-name">{this.props.product.title}</div>
-              <div className="size-style">
-                {this.props.size} | {this.props.product.style}
+              <div className="cartItem.-style">
+                {this.props.cartItem.size} | {this.props.product.style}
               </div>
-              <div className="item-qty">Quantity : {this.props.quantity}</div>
+              <div className="item-qty">
+                cartItem. : {this.props.cartItem.quantity}
+              </div>
             </div>
             <div className="item-price">
               <span>$</span>
