@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Product from "./Product";
 import { observer } from "mobx-react";
-import { action, computed, observable } from "mobx";
-
+import { ProductsContainerStyle } from "./styledComponents";
 @observer
 class ProductsContainer extends Component {
   getContent = () => {
@@ -33,7 +32,7 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    return <div className="products-container">{this.getContent()}</div>;
+    return <ProductsContainerStyle>{this.getContent()}</ProductsContainerStyle>;
   }
 }
 

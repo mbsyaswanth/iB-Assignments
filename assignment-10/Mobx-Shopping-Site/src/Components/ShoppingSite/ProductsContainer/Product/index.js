@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { action, computed, observable } from "mobx";
 
+import {
+  ProductContainer,
+  FreeShipping,
+  ProductInfo,
+  ProductTitle,
+  Line,
+  ProductPrice,
+  ProductInstallments,
+  ProductCartBtn,
+  Select,
+  Option
+} from "./styledComponents";
+
 @observer
 class Product extends Component {
   @observable size = this.props.product.availableSizes[0];
@@ -18,43 +31,37 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="product-container">
-        <div
-          className={
-            this.props.product.isFreeShipping ? "free-shipping" : "display-none"
-          }
-        >
+      <ProductContainer>
+        <FreeShipping isFreeShipping={this.props.product.isFreeShipping}>
           Free shipping
-        </div>
-        <div className="product-image-container">
+        </FreeShipping>
+        <div>
           <img alt="productimage" src={this.props.product.image} />
         </div>
-        <div className="product-info">
-          <div className="product-title">{this.props.product.title}</div>
-          <div className="line" />
-          <div className="product-price">$ {this.props.product.price}</div>
-          <div className="product-installments">
+        <ProductInfo>
+          <ProductTitle>{this.props.product.title}</ProductTitle>
+          <Line />
+          <ProductPrice>$ {this.props.product.price}</ProductPrice>
+          <ProductInstallments>
             or {this.props.product.installments}x $
             {(
               this.props.product.price / this.props.product.installments
             ).toFixed(2)}
-          </div>
-          <div className="sizes-available">
-            <select value={this.size} onChange={this.onSizeChange}>
+          </ProductInstallments>
+          <div>
+            <Select value={this.size} onChange={this.onSizeChange}>
               {this.props.product.availableSizes.map(size => {
                 return (
-                  <option value={size} key={size}>
+                  <Option value={size} key={size}>
                     {size}
-                  </option>
+                  </Option>
                 );
               })}
-            </select>
+            </Select>
           </div>
-        </div>
-        <button onClick={this.handleClick} className="product-cart-btn">
-          Add to cart
-        </button>
-      </div>
+        </ProductInfo>
+        <ProductCartBtn onClick={this.handleClick}>Add to cart</ProductCartBtn>
+      </ProductContainer>
     );
   }
 }

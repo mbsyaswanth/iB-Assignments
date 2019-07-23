@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 
 import { observer } from "mobx-react";
-import { action, computed, observable } from "mobx";
 
+import {
+  SizeFiltersContainer,
+  SizeFilterRow1,
+  SizeFilter
+} from "./styledComponents";
 @observer
 class SizeFilters extends Component {
   handleClick = event => {
@@ -12,84 +16,56 @@ class SizeFilters extends Component {
 
   render() {
     return (
-      <div className="size-filters-container">
+      <SizeFiltersContainer>
         <div>
-          <div className="size-filter-row1">
-            <input
+          <SizeFilterRow1>
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("XS")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("XS")}
               value="XS"
             />
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("S")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("S")}
               value="S"
             />
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("M")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("M")}
               value="M"
             />
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("ML")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("ML")}
               value="ML"
             />
-          </div>
+          </SizeFilterRow1>
           <div>
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("L")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("L")}
               value="L"
             />
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("XL")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("XL")}
               value="XL"
             />
-            <input
+            <SizeFilter
               type="button"
               onClick={this.handleClick}
-              className={
-                this.props.sizes.includes("XXL")
-                  ? "size-filter size-filter-select"
-                  : "size-filter"
-              }
+              select={this.props.sizes.includes("XXL")}
               value="XXL"
             />
           </div>
         </div>
-      </div>
+      </SizeFiltersContainer>
     );
   }
 }

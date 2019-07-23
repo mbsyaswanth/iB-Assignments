@@ -5,6 +5,13 @@ import ProductsContainer from "./ProductsContainer";
 import CartContainer from "./CartContainer";
 import "./styles.css";
 
+import {
+  ShoppingSiteContainer,
+  FiltersSidebar,
+  SizesHeading,
+  MainContentContainer,
+  SortBy
+} from "./styledComponents";
 import { observer } from "mobx-react";
 
 @observer
@@ -18,16 +25,16 @@ class ShoppingSite extends Component {
     return (
       <>
         <CartContainer store={this.props.store} />
-        <div className="shopping-site-container">
-          <div className="filters-sidebar">
-            <h3 className="sizes-heading">Sizes:</h3>
+        <ShoppingSiteContainer>
+          <FiltersSidebar>
+            <SizesHeading>Sizes:</SizesHeading>
             <SizeFilters
               onFilterClick={this.props.store.updateSizeFilters}
               sizes={this.props.store.sizes}
             />
-          </div>
-          <div className="main-content-container">
-            <div className="sort-by">
+          </FiltersSidebar>
+          <MainContentContainer>
+            <SortBy>
               <div>
                 {this.props.store.filteredProductsCount} product(s) found
               </div>
@@ -43,10 +50,10 @@ class ShoppingSite extends Component {
                   <option value="hl">high to low</option>
                 </select>
               </div>
-            </div>
+            </SortBy>
             <ProductsContainer store={this.props.store} />
-          </div>
-        </div>
+          </MainContentContainer>
+        </ShoppingSiteContainer>
       </>
     );
   }
