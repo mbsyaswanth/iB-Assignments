@@ -8,7 +8,7 @@
  
         - onsubmit call respective function using props.
 
-     - route - products (protected), login, signup in app.js 
+     - route - products (protected), login, signup in app.js - 15:00 - 15:15
 
      - login , signup functions in store - send data to endpoint with headers using fetch api - 45mins 
 	
@@ -16,5 +16,8 @@
 
      - modify fetchData() function to use new endpoint done- 14:45
     
-     - @observable auth- {status, accessToken}  in store
+     - @observable auth- {status, accessToken}  in store 
+
+	
+	- integrate store and signup page -30min 15:17
 

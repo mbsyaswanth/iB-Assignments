@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -18,9 +17,35 @@ function App() {
   return (
     <Router>
       <Route exact path="/" render={() => <Redirect to="/login" />} />
-      <Route path="/login" render={() => <AuthPage type="login" />} />
-      <Route path="/signup" render={() => <AuthPage type="signup" />} />
-      <div>{/* <ShoppingSite store={store} /> */}</div>
+      <Route
+        path="/login"
+        render={props => (
+          <AuthPage
+            {...props}
+            type="login"
+            submit={store.login}
+            loginStatus={store.loginStatus}
+            msg={store.msg}
+            store={store}
+          />
+        )}
+      />
+      <Route
+        path="/signup"
+        render={props => (
+          <AuthPage
+            {...props}
+            type="signup"
+            submit={store.signUp}
+            msg={store.msg}
+            store={store}
+          />
+        )}
+      />
+      <Route
+        path="/products"
+        render={props => <ShoppingSite store={store} />}
+      />
     </Router>
   );
 }

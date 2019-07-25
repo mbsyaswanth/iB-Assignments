@@ -4,19 +4,17 @@ import { action, computed, observable } from "mobx";
 import CartItem from "../models/CartItem";
 import Product from "../models/Product";
 import User from "../models/User";
-import { endpoints } from "../constants";
+import { endpoints, loadingStatus } from "../constants";
 
 class Products {
   @observable cart = [];
   @observable products = [];
   @observable sizes = [];
   @observable orderBy = "";
-  @observable loadingStatus = "loading";
-  @observable loginStatus = {
-    status: "",
-    accessToken: ""
-  };
+  @observable loadingStatus = loadingStatus.loading;
+  @observable loginStatus = {};
   @observable signUpStatus = { status: "" };
+  @observable msg = "";
 
   @action addToCart = (id, size) => {
     if (
@@ -43,7 +41,7 @@ class Products {
     });
   };
 
-  @action signUp = (username, password) => {
+  @action signUp = (username, password, history) => {
     let user = new User(username, password);
     const options = {
       method: "POST",
@@ -55,15 +53,20 @@ class Products {
     fetch(endpoints.signup, options)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.signUpStatus = res;
+        if (this.signUpStatus.error) {
+          this.msg = this.signUpStatus.error;
+          console.log(this.msg);
+          return;
+        }
+        this.msg = "user created successfully. please login";
       })
       .catch(err => {
         console.log("Ooops, error", err.message);
       });
   };
 
-  @action login = (username, password) => {
+  @action login = (username, password, history) => {
     let user = new User(username, password);
     const options = {
       method: "POST",
@@ -75,8 +78,16 @@ class Products {
     fetch(endpoints.login, options)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.loginStatus = res;
+        console.log("in login", this.loginStatus.accessToken);
+      })
+      .then(res => {
+        if (this.loginStatus.error) {
+          this.msg = this.loginStatus.error;
+          console.log(this.msg);
+          return;
+        }
+        history.replace("/products");
       })
       .catch(err => {
         console.log("Ooops, error", err.message);
@@ -84,10 +95,12 @@ class Products {
   };
 
   @action fetchData = () => {
+    console.log("fetch data", this.loginStatus.accessToken);
     const options = {
       method: "POST",
       headers: {
-        Authorization: this.loginStatus.accessToken
+        Authorization: this.loginStatus.accessToken,
+        "Content-Type": "application/json"
       }
     };
     fetch(endpoints.products, options)
@@ -95,18 +108,18 @@ class Products {
         if (result.ok) {
           return result.json();
         } else {
-          this.loadingStatus = "fail";
+          this.loadingStatus = loadingStatus.fail;
         }
       })
       .then(json => {
         json.products.forEach(product => {
           this.addProduct(product);
         });
-        this.loadingStatus = "success";
+        this.loadingStatus = loadingStatus.success;
       })
       .catch(err => {
         console.log("Ooops, error", err.message);
-        this.loadingStatus = "fail";
+        this.loadingStatus = loadingStatus.fail;
       });
   };
 

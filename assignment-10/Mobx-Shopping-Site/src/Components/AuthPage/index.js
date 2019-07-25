@@ -16,30 +16,61 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
-
 import { observer } from "mobx-react";
+import { action, computed, observable } from "mobx";
 
+@observer
 class AuthPage extends Component {
+  @observable username = "";
+  @observable password = "";
+  @action onUsernameChange = event => {
+    this.username = event.target.value;
+  };
+  @action onPasswordChange = event => {
+    this.password = event.target.value;
+  };
+  onSubmit = event => {
+    this.props.submit(this.username, this.password, this.props.history);
+    if (this.props.type === "login") {
+      console.log(this.props.loginStatus);
+    }
+    event.preventDefault();
+  };
+
+  componentDidMount() {
+    this.props.store.msg = "";
+  }
+
   render() {
     return (
       <AuthContainer>
         <AuthHeading>{this.props.type}</AuthHeading>
-        <AuthForm>
-          <FormMsg>this is error message</FormMsg>
+        <AuthForm onSubmit={this.onSubmit}>
+          <FormMsg>{this.props.store.msg}</FormMsg>
           <div>
             <FormText>Username</FormText>
-            <FormInput type="text" required />
+            <FormInput
+              type="text"
+              value={this.username}
+              required
+              onChange={this.onUsernameChange}
+            />
           </div>
           <div>
             <FormText>Password</FormText>
-            <FormInput type="password" required />
+            <FormInput
+              type="password"
+              value={this.password}
+              required
+              onChange={this.onPasswordChange}
+            />
           </div>
           <FormSubmit> Submit</FormSubmit>
         </AuthForm>
-        <SignUpText>
+        <SignUpText type={this.props.type}>
           {" "}
-          sign up{" "}
-          <Link to="signup" render={() => <this.AuthPage type="signup" />}>
+          {this.props.type === "signup" ? "login" : "sign up"}{" "}
+          <Link to={this.props.type === "signup" ? "/login" : "/signup"}>
             here
           </Link>
         </SignUpText>
