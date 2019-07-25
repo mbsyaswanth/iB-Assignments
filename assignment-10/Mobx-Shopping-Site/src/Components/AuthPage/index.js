@@ -19,11 +19,11 @@ import {
 
 import { observer } from "mobx-react";
 
-export class AuthPage extends Component {
+class AuthPage extends Component {
   render() {
     return (
       <AuthContainer>
-        <AuthHeading>Login</AuthHeading>
+        <AuthHeading>{this.props.type}</AuthHeading>
         <AuthForm>
           <FormMsg>this is error message</FormMsg>
           <div>
@@ -39,7 +39,7 @@ export class AuthPage extends Component {
         <SignUpText>
           {" "}
           sign up{" "}
-          <Link to="signup" render={AuthPage}>
+          <Link to="signup" render={() => <this.AuthPage type="signup" />}>
             here
           </Link>
         </SignUpText>

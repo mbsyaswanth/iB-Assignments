@@ -12,9 +12,9 @@
 
      - login , signup functions in store - send data to endpoint with headers using fetch api - 45mins 
 	
-	14:00 - 
+	14:00 - 14:45
 
-     - modify fetchData() function to use new endpoint
+     - modify fetchData() function to use new endpoint done- 14:45
     
      - @observable auth- {status, accessToken}  in store
 

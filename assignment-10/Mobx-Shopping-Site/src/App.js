@@ -17,10 +17,10 @@ let store = new Products();
 function App() {
   return (
     <Router>
-      <div>
-        <AuthPage />
-        {/* <ShoppingSite store={store} /> */}
-      </div>
+      <Route exact path="/" render={() => <Redirect to="/login" />} />
+      <Route path="/login" render={() => <AuthPage type="login" />} />
+      <Route path="/signup" render={() => <AuthPage type="signup" />} />
+      <div>{/* <ShoppingSite store={store} /> */}</div>
     </Router>
   );
 }

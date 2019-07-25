@@ -3,6 +3,8 @@ import { action, computed, observable } from "mobx";
 
 import CartItem from "../models/CartItem";
 import Product from "../models/Product";
+import User from "../models/User";
+import { endpoints } from "../constants";
 
 class Products {
   @observable cart = [];
@@ -12,7 +14,7 @@ class Products {
   @observable loadingStatus = "loading";
   @observable loginStatus = {
     status: "",
-    AccessToken: ""
+    accessToken: ""
   };
   @observable signUpStatus = { status: "" };
 
@@ -41,8 +43,54 @@ class Products {
     });
   };
 
+  @action signUp = (username, password) => {
+    let user = new User(username, password);
+    const options = {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    fetch(endpoints.signup, options)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.signUpStatus = res;
+      })
+      .catch(err => {
+        console.log("Ooops, error", err.message);
+      });
+  };
+
+  @action login = (username, password) => {
+    let user = new User(username, password);
+    const options = {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    fetch(endpoints.login, options)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.loginStatus = res;
+      })
+      .catch(err => {
+        console.log("Ooops, error", err.message);
+      });
+  };
+
   @action fetchData = () => {
-    fetch("https://demo8129378.mockable.io/products/all/v1")
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: this.loginStatus.accessToken
+      }
+    };
+    fetch(endpoints.products, options)
       .then(result => {
         if (result.ok) {
           return result.json();
