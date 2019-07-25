@@ -10,6 +10,11 @@ class Products {
   @observable sizes = [];
   @observable orderBy = "";
   @observable loadingStatus = "loading";
+  @observable loginStatus = {
+    status: "",
+    AccessToken: ""
+  };
+  @observable signUpStatus = { status: "" };
 
   @action addToCart = (id, size) => {
     if (

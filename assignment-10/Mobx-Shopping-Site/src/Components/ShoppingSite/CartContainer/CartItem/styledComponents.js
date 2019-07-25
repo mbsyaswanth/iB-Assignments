@@ -27,12 +27,17 @@ export const CrossMark = styled.span`
   font-weight: 800;
   padding-right: 5px;
   cursor: pointer;
+  z-index: 1024;
 `;
 
 export const CartItemInfo = styled.div`
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  ${CrossMark}:hover & {
+    text-decoration: line-through;
+    font-weight: 800;
+  }
 `;
 
 export const ItemName = styled.div`

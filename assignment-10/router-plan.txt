@@ -1,0 +1,20 @@
+ 
+   
+     - component for login and signup (one component) - 30mins 12:20pm - 13:58 (12:20 - 13:10 break)
+
+        - props - login or signup  
+     
+	- username , password as observable
+ 
+        - onsubmit call respective function using props.
+
+     - route - products (protected), login, signup in app.js 
+
+     - login , signup functions in store - send data to endpoint with headers using fetch api - 45mins 
+	
+	14:00 - 
+
+     - modify fetchData() function to use new endpoint
+    
+     - @observable auth- {status, accessToken}  in store
+

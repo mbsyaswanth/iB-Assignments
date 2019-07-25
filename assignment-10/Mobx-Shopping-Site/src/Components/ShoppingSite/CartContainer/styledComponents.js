@@ -5,7 +5,7 @@ export const StyledCartContainer = styled.div`
   z-index: 999;
   display: flex;
   right: ${props => (props.isClicked ? "0" : "-40vw")};
-  transition: 0.5s;
+  transition: 0.9s cubic-bezier(0, 0, 0.2, 1);
   height: 100vh;
 `;
 
