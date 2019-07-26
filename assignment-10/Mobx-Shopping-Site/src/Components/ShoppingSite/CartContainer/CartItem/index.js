@@ -18,24 +18,25 @@ class CartItem extends Component {
   };
 
   render() {
+    const { image, title, style, price } = this.props.product;
     return (
       <StyledCartItem>
         <div>
-          <CartItemImage alt="cartitem" src={this.props.product.image} />
+          <CartItemImage alt="cartitem" src={image} />
         </div>
         <CartItemInfoWrapper>
           <CrossMark onClick={this.handleRemove}>x</CrossMark>
           <CartItemInfo>
             <div>
-              <ItemName>{this.props.product.title}</ItemName>
+              <ItemName>{title}</ItemName>
               <Grey>
-                {this.props.cartItem.size} | {this.props.product.style}
+                {this.props.cartItem.size} | {style}
               </Grey>
               <Grey>Quantity : {this.props.cartItem.quantity}</Grey>
             </div>
             <ItemPrice>
               <span>$</span>
-              {this.props.product.price}
+              {price}
             </ItemPrice>
           </CartItemInfo>
         </CartItemInfoWrapper>
