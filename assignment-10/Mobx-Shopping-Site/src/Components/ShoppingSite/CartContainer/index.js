@@ -34,31 +34,33 @@ class CartContainer extends Component {
   }
 
   render() {
+    const {
+      cartItemsCount,
+      cart,
+      getProduct,
+      totalCartValue
+    } = this.props.store;
     return (
       <StyledCartContainer isClicked={this.isClicked}>
         <CartToggle onClick={this.cartClick}>
           {this.cartIcon}
-          <CartCount show={!this.isClicked}>
-            {this.props.store.cartItemsCount}
-          </CartCount>
+          <CartCount show={!this.isClicked}>{cartItemsCount}</CartCount>
         </CartToggle>
         <CartItemsContainer>
           <CartItemsInnerWrap>
             <CartIconInCart>
               <CartToggle>
                 <InCartIcon alt="carticon" src="assets/cart.png" />
-                <InsideCartCount>
-                  {this.props.store.cartItemsCount}
-                </InsideCartCount>
+                <InsideCartCount>{cartItemsCount}</InsideCartCount>
               </CartToggle>
               <CartText>Cart</CartText>
             </CartIconInCart>
             <div className="cart-items-wrapper">
-              {this.props.store.cart.map(item => {
+              {cart.map(item => {
                 return (
                   <CartItem
                     key={item.id}
-                    product={this.props.store.getProduct(item.itemId)}
+                    product={getProduct(item.itemId)}
                     store={this.props.store}
                     cartItem={item}
                   />
@@ -71,7 +73,7 @@ class CartContainer extends Component {
               <SubTotalText>SUBTOTAL</SubTotalText>
               <SubTotalCount>
                 <span>$</span>
-                {this.props.store.totalCartValue}
+                {totalCartValue}
               </SubTotalCount>
             </SubTotal>
             <Checkout>CHECKOUT</Checkout>

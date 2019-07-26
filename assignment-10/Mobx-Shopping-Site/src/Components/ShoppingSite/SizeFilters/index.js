@@ -4,11 +4,7 @@ import { observer } from "mobx-react";
 
 import { sizeConstants } from "../../../constants";
 
-import {
-  SizeFiltersContainer,
-  SizeFilterRow1,
-  SizeFilter
-} from "./styledComponents";
+import { SizeFiltersContainer, SizeFilter } from "./styledComponents";
 @observer
 class SizeFilters extends Component {
   handleClick = event => {

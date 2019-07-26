@@ -7,3 +7,7 @@
 4) rename loading status - 5mins 12:07 - 12:15
 
 5) sizes as constants - 10mins 12:21 - 12:45
+
+6) destructuring in product -> index.js file - 5mins 12:50 - 13:01
+
+7) destructuring in cart container file - 5mins 13:05 - 13:07

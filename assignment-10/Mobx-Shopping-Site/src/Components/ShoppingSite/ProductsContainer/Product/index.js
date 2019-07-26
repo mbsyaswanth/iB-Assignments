@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import { action, computed, observable } from "mobx";
+import { observable } from "mobx";
 
 import {
   ProductContainer,
@@ -18,8 +18,6 @@ import {
 @observer
 class Product extends Component {
   @observable size = this.props.product.availableSizes[0];
-
-  //TODO: use destructuring
   onSizeChange = event => {
     console.log(event.target.value);
     this.size = event.target.value;
@@ -31,26 +29,33 @@ class Product extends Component {
   };
 
   render() {
-    const { product } = this.props;
+    const {
+      isFreeShipping,
+      image,
+      title,
+      price,
+      installments,
+      availableSizes
+    } = this.props.product;
+
     return (
       <ProductContainer>
-        <FreeShipping isFreeShipping={product.isFreeShipping}>
+        <FreeShipping isFreeShipping={isFreeShipping}>
           Free shipping
         </FreeShipping>
         <div>
-          <img alt="productimage" src={product.image} />
+          <img alt="productimage" src={image} />
         </div>
         <ProductInfo>
-          <ProductTitle>{product.title}</ProductTitle>
+          <ProductTitle>{title}</ProductTitle>
           <Line />
-          <ProductPrice>$ {product.price}</ProductPrice>
+          <ProductPrice>$ {price}</ProductPrice>
           <ProductInstallments>
-            or {product.installments}x $
-            {(product.price / product.installments).toFixed(2)}
+            or {installments}x ${(price / installments).toFixed(2)}
           </ProductInstallments>
           <div>
             <Select value={this.size} onChange={this.onSizeChange}>
-              {product.availableSizes.map(size => {
+              {availableSizes.map(size => {
                 return (
                   <Option value={size} key={size}>
                     {size}
