@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import Product from "./Product";
 import { observer } from "mobx-react";
 import { ProductsContainerStyle } from "./styledComponents";
-import { loadingStatus } from "../../../constants";
+import { productFetchStatus } from "../../../constants";
 @observer
 class ProductsContainer extends Component {
   getContent = () => {
-    if (this.props.store.loadingStatus === loadingStatus.loading) {
+    if (this.props.store.productFetchStatus === productFetchStatus.loading) {
       return <p>Loading products..........</p>;
     }
-    if (this.props.store.loadingStatus === loadingStatus.fail) {
+    if (this.props.store.productFetchStatus === productFetchStatus.fail) {
       return <p>something went wrong</p>;
     }
-    if (this.props.store.loadingStatus === loadingStatus.success) {
+    if (this.props.store.productFetchStatus === productFetchStatus.success) {
       if (this.props.store.products.length === 0) {
         return <p>No products available</p>;
       }

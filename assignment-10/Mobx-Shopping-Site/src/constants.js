@@ -4,7 +4,7 @@ export const endpoints = {
   products: "https://user-shopping-cart.getsandbox.com/products/v1/"
 };
 
-export const loadingStatus = {
+export const productFetchStatus = {
   loading: "LOADING",
   success: "SUCCESS",
   fail: "FAIL"

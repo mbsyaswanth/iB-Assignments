@@ -4,4 +4,4 @@
 
 3) simplify / seperate/ make more redable code for filteredProducts method in store. - 5mins 11:55 - 11:58
 
-4) 
+4) rename loading status - 5mins 12:07

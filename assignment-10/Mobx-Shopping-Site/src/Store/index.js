@@ -4,14 +4,14 @@ import { action, computed, observable } from "mobx";
 import CartItem from "../models/CartItem";
 import Product from "../models/Product";
 import User from "../models/User";
-import { endpoints, loadingStatus, orderBy } from "../constants";
+import { endpoints, productFetchStatus, orderBy } from "../constants";
 
 class Products {
   @observable cart = [];
   @observable products = [];
   @observable sizes = [];
   @observable orderBy = "";
-  @observable loadingStatus = loadingStatus.loading;
+  @observable productFetchStatus = productFetchStatus.loading;
   @observable loginStatus = {};
   @observable signUpStatus = { status: "" };
   @observable msg = "";
@@ -106,18 +106,18 @@ class Products {
         if (result.ok) {
           return result.json();
         } else {
-          this.loadingStatus = loadingStatus.fail;
+          this.productFetchStatus = productFetchStatus.fail;
         }
       })
       .then(json => {
         json.products.forEach(product => {
           this.addProduct(product);
         });
-        this.loadingStatus = loadingStatus.success;
+        this.productFetchStatus = productFetchStatus.success;
       })
       .catch(err => {
         console.log("Ooops, error", err.message);
-        this.loadingStatus = loadingStatus.fail;
+        this.productFetchStatus = productFetchStatus.fail;
       });
   }
 
