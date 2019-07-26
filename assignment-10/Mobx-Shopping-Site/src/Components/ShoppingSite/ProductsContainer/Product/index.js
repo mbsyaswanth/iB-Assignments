@@ -18,6 +18,7 @@ import {
 @observer
 class Product extends Component {
   @observable size = this.props.product.availableSizes[0];
+
   //TODO: use destructuring
   onSizeChange = event => {
     console.log(event.target.value);
@@ -30,27 +31,26 @@ class Product extends Component {
   };
 
   render() {
+    const { product } = this.props;
     return (
       <ProductContainer>
-        <FreeShipping isFreeShipping={this.props.product.isFreeShipping}>
+        <FreeShipping isFreeShipping={product.isFreeShipping}>
           Free shipping
         </FreeShipping>
         <div>
-          <img alt="productimage" src={this.props.product.image} />
+          <img alt="productimage" src={product.image} />
         </div>
         <ProductInfo>
-          <ProductTitle>{this.props.product.title}</ProductTitle>
+          <ProductTitle>{product.title}</ProductTitle>
           <Line />
-          <ProductPrice>$ {this.props.product.price}</ProductPrice>
+          <ProductPrice>$ {product.price}</ProductPrice>
           <ProductInstallments>
-            or {this.props.product.installments}x $
-            {(
-              this.props.product.price / this.props.product.installments
-            ).toFixed(2)}
+            or {product.installments}x $
+            {(product.price / product.installments).toFixed(2)}
           </ProductInstallments>
           <div>
             <Select value={this.size} onChange={this.onSizeChange}>
-              {this.props.product.availableSizes.map(size => {
+              {product.availableSizes.map(size => {
                 return (
                   <Option value={size} key={size}>
                     {size}

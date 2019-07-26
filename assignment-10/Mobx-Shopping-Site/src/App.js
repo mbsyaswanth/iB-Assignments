@@ -1,12 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import ShoppingSite from "./Components/ShoppingSite";
 import Products from "./Store";
 import AuthPage from "./Components/AuthPage";
@@ -24,8 +18,6 @@ function App() {
             {...props}
             type="login"
             submit={store.login}
-            loginStatus={store.loginStatus}
-            msg={store.msg}
             store={store}
           />
         )}
@@ -37,7 +29,6 @@ function App() {
             {...props}
             type="signup"
             submit={store.signUp}
-            msg={store.msg}
             store={store}
           />
         )}

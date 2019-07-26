@@ -16,7 +16,7 @@ class Products {
   @observable signUpStatus = { status: "" };
   @observable msg = "";
 
-  @action addToCart = (id, size) => {
+  @action.bound addToCart(id, size) {
     if (
       this.cart.some((item, itemIndex) => {
         if (item.itemId === id && item.size === size) {
@@ -31,17 +31,17 @@ class Products {
       console.log("in else push new item");
       this.cart.push(new CartItem(id, size));
     }
-  };
+  }
 
-  @action removeFromCart = item => {
+  @action.bound removeFromCart(item) {
     this.cart.forEach((cartItem, index) => {
       if (cartItem === item) {
         this.cart.splice(index, 1);
       }
     });
-  };
+  }
 
-  @action signUp = (username, password, history) => {
+  @action.bound signUp(username, password, history) {
     let user = new User(username, password);
     const options = {
       method: "POST",
@@ -64,9 +64,9 @@ class Products {
       .catch(err => {
         console.log("Ooops, error", err.message);
       });
-  };
+  }
 
-  @action login = (username, password, history) => {
+  @action.bound login(username, password, history) {
     let user = new User(username, password);
     const options = {
       method: "POST",
@@ -79,7 +79,6 @@ class Products {
       .then(res => res.json())
       .then(res => {
         this.loginStatus = res;
-        console.log("in login", this.loginStatus.accessToken);
       })
       .then(res => {
         if (this.loginStatus.error) {
@@ -92,10 +91,9 @@ class Products {
       .catch(err => {
         console.log("Ooops, error", err.message);
       });
-  };
+  }
 
-  @action fetchData = () => {
-    console.log("fetch data", this.loginStatus.accessToken);
+  @action.bound fetchData() {
     const options = {
       method: "POST",
       headers: {
@@ -121,13 +119,13 @@ class Products {
         console.log("Ooops, error", err.message);
         this.loadingStatus = loadingStatus.fail;
       });
-  };
+  }
 
-  @action addProduct = obj => {
+  @action.bound addProduct(obj) {
     this.products.push(new Product(obj));
-  };
+  }
   //TODO: make constants for sizes, orderby
-  @action updateSizeFilters = size => {
+  @action.bound updateSizeFilters = size => {
     if (this.sizes.includes(size)) {
       this.sizes.splice(this.sizes.indexOf(size), 1);
       return;
@@ -135,9 +133,9 @@ class Products {
     this.sizes.push(size);
   };
 
-  @action updateOrderBy = order => {
+  @action.bound updateOrderBy(order) {
     this.orderBy = order;
-  };
+  }
 
   @computed get cartItemsCount() {
     if (this.cart.length === 0) {
@@ -207,12 +205,6 @@ class Products {
   getIndexInProducts = id => {
     return this.products.findIndex(product => {
       return product.id === id;
-    });
-  };
-  // TODO: remove this method - its not used anywhere
-  getIndexInCart = id => {
-    return this.cart.findIndex(item => {
-      return item.itemId === id;
     });
   };
 }
