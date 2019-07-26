@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { observer } from "mobx-react";
 
+import { sizeConstants } from "../../../constants";
+
 import {
   SizeFiltersContainer,
   SizeFilterRow1,
@@ -18,52 +20,15 @@ class SizeFilters extends Component {
     return (
       <SizeFiltersContainer>
         <div>
-          <SizeFilterRow1>
+          {console.log(Object.values(sizeConstants))}
+          {Object.values(sizeConstants).map(value => (
             <SizeFilter
               type="button"
               onClick={this.handleClick}
-              select={this.props.sizes.includes("XS")}
-              value="XS"
+              select={this.props.sizes.includes(value)}
+              value={value}
             />
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("S")}
-              value="S"
-            />
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("M")}
-              value="M"
-            />
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("ML")}
-              value="ML"
-            />
-          </SizeFilterRow1>
-          <div>
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("L")}
-              value="L"
-            />
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("XL")}
-              value="XL"
-            />
-            <SizeFilter
-              type="button"
-              onClick={this.handleClick}
-              select={this.props.sizes.includes("XXL")}
-              value="XXL"
-            />
-          </div>
+          ))}
         </div>
       </SizeFiltersContainer>
     );

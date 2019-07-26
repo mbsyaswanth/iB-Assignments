@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const SizeFiltersContainer = styled.div`
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-left: 30px;
   flex-direction: column;
   align-items: flex-end;
-`;
-
-export const SizeFilterRow1 = styled.div`
-  padding-bottom: 5px;
 `;
 
 export const SizeFilter = styled.input`

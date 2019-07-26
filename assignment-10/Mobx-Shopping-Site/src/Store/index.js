@@ -121,10 +121,10 @@ class Products {
       });
   }
 
-  @action.bound addProduct(obj) {
-    this.products.push(new Product(obj));
+  @action.bound addProduct(product) {
+    this.products.push(new Product(product));
   }
-  //TODO: make constants for sizes, orderby
+  //TODO: make constants for sizes
   @action.bound updateSizeFilters = size => {
     if (this.sizes.includes(size)) {
       this.sizes.splice(this.sizes.indexOf(size), 1);

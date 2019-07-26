@@ -14,3 +14,13 @@ export const orderBy = {
   lh: "LOW TO HIGH",
   hl: "HIGH TO LOW"
 };
+
+export const sizeConstants = {
+  xs: "XS",
+  s: "S",
+  m: "M",
+  ml: "ML",
+  l: "L",
+  xl: "XL",
+  xxl: "XXL"
+};
