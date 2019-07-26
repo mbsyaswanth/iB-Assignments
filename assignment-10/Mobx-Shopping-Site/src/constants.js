@@ -9,3 +9,8 @@ export const loadingStatus = {
   success: "SUCCESS",
   fail: "FAIL"
 };
+
+export const orderBy = {
+  lh: "LOW TO HIGH",
+  hl: "HIGH TO LOW"
+};

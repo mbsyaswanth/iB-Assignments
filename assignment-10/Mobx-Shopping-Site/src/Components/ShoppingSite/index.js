@@ -4,6 +4,7 @@ import SizeFilters from "./SizeFilters";
 import ProductsContainer from "./ProductsContainer";
 import CartContainer from "./CartContainer";
 
+import { orderBy } from "../../constants";
 import {
   ShoppingSiteContainer,
   FiltersSidebar,
@@ -45,8 +46,8 @@ class ShoppingSite extends Component {
                 >
                   {/* TODO: make lh hl as constants */}
                   <option value="select">select</option>
-                  <option value="lh">low to high</option>
-                  <option value="hl">high to low</option>
+                  <option value={orderBy.lh}>low to high</option>
+                  <option value={orderBy.hl}>high to low</option>
                 </select>
               </div>
             </SortBy>

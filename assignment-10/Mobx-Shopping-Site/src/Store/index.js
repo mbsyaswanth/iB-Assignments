@@ -4,7 +4,7 @@ import { action, computed, observable } from "mobx";
 import CartItem from "../models/CartItem";
 import Product from "../models/Product";
 import User from "../models/User";
-import { endpoints, loadingStatus } from "../constants";
+import { endpoints, loadingStatus, orderBy } from "../constants";
 
 class Products {
   @observable cart = [];
@@ -152,13 +152,13 @@ class Products {
       return allProducts;
     }
     console.log(this.orderBy);
-    if (this.orderBy === "lh") {
+    if (this.orderBy === orderBy.lh) {
       console.log("in lh");
       allProducts = allProducts.sort((a, b) => {
         return a.price - b.price;
       });
     }
-    if (this.orderBy === "hl") {
+    if (this.orderBy === orderBy.hl) {
       console.log("in h1");
       allProducts = allProducts.sort((a, b) => {
         return b.price - a.price;
