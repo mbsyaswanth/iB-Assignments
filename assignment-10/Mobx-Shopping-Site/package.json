@@ -2,7 +2,11 @@
   "name": "react-mobx-starter-kit",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5"
+  },
   "dependencies": {
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-decorators": "7.4.4",
@@ -85,12 +89,16 @@
     ]
   },
   "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
     ],
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "<rootDir>/src/setupTests.js"
     ],
     "setupFilesAfterEnv": [],
     "testMatch": [

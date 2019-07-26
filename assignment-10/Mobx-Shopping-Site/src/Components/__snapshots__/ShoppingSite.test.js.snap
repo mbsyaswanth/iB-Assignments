@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShoppingSite should render correctly in "debug" mode 1`] = `
+<Fragment>
+  <CartContainer
+    store={
+      Products {
+        "cart": Array [],
+        "getIndexInProducts": [Function],
+        "getProduct": [Function],
+        "loginStatus": Object {},
+        "msg": "",
+        "orderBy": "",
+        "productFetchStatus": "LOADING",
+        "products": Array [],
+        "signUpStatus": Object {
+          "status": "",
+        },
+        "sizes": Array [],
+      }
+    }
+  />
+  <styled.div>
+    <styled.div>
+      <styled.h3>
+        Sizes:
+      </styled.h3>
+      <SizeFilters
+        onFilterClick={[Function]}
+        sizes={Array []}
+      />
+    </styled.div>
+    <styled.div>
+      <styled.div>
+        <div>
+          0
+           product(s) found
+        </div>
+        <div>
+          Order by
+            
+          <select
+            onChange={[Function]}
+            value=""
+          >
+            <option
+              value="select"
+            >
+              select
+            </option>
+            <option
+              value="LOW TO HIGH"
+            >
+              low to high
+            </option>
+            <option
+              value="HIGH TO LOW"
+            >
+              high to low
+            </option>
+          </select>
+        </div>
+      </styled.div>
+      <ProductsContainer
+        store={
+          Products {
+            "cart": Array [],
+            "getIndexInProducts": [Function],
+            "getProduct": [Function],
+            "loginStatus": Object {},
+            "msg": "",
+            "orderBy": "",
+            "productFetchStatus": "LOADING",
+            "products": Array [],
+            "signUpStatus": Object {
+              "status": "",
+            },
+            "sizes": Array [],
+          }
+        }
+      />
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;

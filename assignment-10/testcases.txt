@@ -1,0 +1,63 @@
+
+
+AuthPage component
+
+1) should not be able to submit with emply username and password.
+
+2) should load ShoppingSite component on successfull login. (from app.js)
+
+
+SizeFilters component
+
+1) should update the size to store on click
+
+2) should change the style on click
+
+
+Product container component
+
+1) should fetch and load the products on sucessfull network call response
+
+2) should show loading.... before fetching the data from network call
+
+3) should show "something went wrong" on failed network request
+
+
+Product component
+
+1) should load the given product according to the props. - 20mins 18:15 - 
+
+2) should add the product to cart upon "add to cart" button click (addtocart function called or not)
+
+3) should show freeshippingbased of prop.
+
+4) snapshots - freeshipping, installments
+
+
+Cart Component
+
+1) should show the products added to cart
+
+2) should remove the item from cart upon "x" button click
+
+
+Store 
+
+1) cartItemsCount() should return count
+
+2) filteredProducts() should return products
+
+3) filterBySizes() should return filtered products based on sizes , input - products
+
+4) sortInDesc() should sort products in desc based on price , input - products
+
+5) sortInAsc() should sort products in Ascending order based on price , input - products
+
+6) filteredProductsCount() should match the number of products given by filteredProducts()
+
+7) getProduct() should return a product on input - id
+
+8) getIndexInProducts() should return index of a product in array , input - product id
+
+
+

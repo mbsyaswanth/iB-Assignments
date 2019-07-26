@@ -47,7 +47,7 @@ class Product extends Component {
           <img alt="productimage" src={image} />
         </div>
         <ProductInfo>
-          <ProductTitle>{title}</ProductTitle>
+          <ProductTitle id="title">{title}</ProductTitle>
           <Line />
           <ProductPrice>$ {price}</ProductPrice>
           <ProductInstallments>
