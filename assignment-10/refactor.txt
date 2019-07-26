@@ -1,3 +1,7 @@
 1) action.bound in store - 5mins 10:55 - 10:58
 
 2) ORDERBY AS CONSTANTS - 5MINS - 11:05 - 11:11
+
+3) simplify / seperate/ make more redable code for filteredProducts method in store. - 5mins 11:55 - 11:58
+
+4) 

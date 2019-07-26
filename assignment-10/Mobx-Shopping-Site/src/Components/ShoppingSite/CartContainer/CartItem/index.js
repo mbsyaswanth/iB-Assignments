@@ -31,7 +31,7 @@ class CartItem extends Component {
               <Grey>
                 {this.props.cartItem.size} | {this.props.product.style}
               </Grey>
-              <Grey>cartItem. : {this.props.cartItem.quantity}</Grey>
+              <Grey>Quantity : {this.props.cartItem.quantity}</Grey>
             </div>
             <ItemPrice>
               <span>$</span>

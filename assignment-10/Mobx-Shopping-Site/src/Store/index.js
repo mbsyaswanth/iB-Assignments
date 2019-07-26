@@ -151,31 +151,45 @@ class Products {
     if (!this.sizes.length && this.orderBy === "") {
       return allProducts;
     }
-    console.log(this.orderBy);
+
     if (this.orderBy === orderBy.lh) {
-      console.log("in lh");
-      allProducts = allProducts.sort((a, b) => {
-        return a.price - b.price;
-      });
+      allProducts = this.sortInAsc(allProducts);
     }
+
     if (this.orderBy === orderBy.hl) {
-      console.log("in h1");
-      allProducts = allProducts.sort((a, b) => {
-        return b.price - a.price;
-      });
+      allProducts = this.sortInDesc(allProducts);
     }
+
     if (this.sizes.length) {
-      console.log("in filter upon");
-      allProducts = allProducts.filter(product => {
-        // TODO: try to eliminate for
-        for (let i = 0; i < this.sizes.length; i++) {
-          if (product.availableSizes.includes(this.sizes[i])) {
-            return true;
-          }
-        }
-        return false;
-      });
+      allProducts = this.filterBySizes(allProducts);
     }
+    return allProducts;
+  }
+
+  filterBySizes(allProducts) {
+    allProducts = allProducts.filter(product => {
+      // TODO: try to eliminate for
+      for (let i = 0; i < this.sizes.length; i++) {
+        if (product.availableSizes.includes(this.sizes[i])) {
+          return true;
+        }
+      }
+      return false;
+    });
+    return allProducts;
+  }
+
+  sortInDesc(allProducts) {
+    allProducts = allProducts.sort((a, b) => {
+      return b.price - a.price;
+    });
+    return allProducts;
+  }
+
+  sortInAsc(allProducts) {
+    allProducts = allProducts.sort((a, b) => {
+      return a.price - b.price;
+    });
     return allProducts;
   }
 

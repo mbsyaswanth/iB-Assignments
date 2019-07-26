@@ -44,7 +44,6 @@ class ShoppingSite extends Component {
                   value={this.props.store.orderBy}
                   onChange={this.handleOrderChange}
                 >
-                  {/* TODO: make lh hl as constants */}
                   <option value="select">select</option>
                   <option value={orderBy.lh}>low to high</option>
                   <option value={orderBy.hl}>high to low</option>
