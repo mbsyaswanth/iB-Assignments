@@ -24,7 +24,6 @@ class Product extends Component {
   };
 
   handleClick = () => {
-    console.log("add to cart button", this.size);
     this.props.store.addToCart(this.props.product.id, this.size);
   };
 
@@ -40,17 +39,17 @@ class Product extends Component {
 
     return (
       <ProductContainer>
-        <FreeShipping isFreeShipping={isFreeShipping}>
+        <FreeShipping id="freeshipping" isFreeShipping={isFreeShipping}>
           Free shipping
         </FreeShipping>
         <div>
           <img alt="productimage" src={image} />
         </div>
         <ProductInfo>
-          <ProductTitle id="title">{title}</ProductTitle>
+          <ProductTitle id="title1">{title}</ProductTitle>
           <Line />
-          <ProductPrice>$ {price}</ProductPrice>
-          <ProductInstallments>
+          <ProductPrice id="price">$ {price}</ProductPrice>
+          <ProductInstallments id="installments">
             or {installments}x ${(price / installments).toFixed(2)}
           </ProductInstallments>
           <div>
@@ -65,7 +64,9 @@ class Product extends Component {
             </Select>
           </div>
         </ProductInfo>
-        <ProductCartBtn onClick={this.handleClick}>Add to cart</ProductCartBtn>
+        <ProductCartBtn id="addtocart" onClick={this.handleClick}>
+          Add to cart
+        </ProductCartBtn>
       </ProductContainer>
     );
   }

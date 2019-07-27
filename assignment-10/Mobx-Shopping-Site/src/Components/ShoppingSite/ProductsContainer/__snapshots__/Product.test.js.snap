@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product Snapshot should match the snapshot 1`] = `
+<styled.div>
+  <styled.div
+    id="freeshipping"
+    isFreeShipping={true}
+  >
+    Free shipping
+  </styled.div>
+  <div>
+    <img
+      alt="productimage"
+      src="https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg"
+    />
+  </div>
+  <styled.div>
+    <styled.div
+      id="title1"
+    >
+      Cat Tee Black T-Shirt
+    </styled.div>
+    <styled.div />
+    <styled.div
+      id="price"
+    >
+      $ 
+      10.9
+    </styled.div>
+    <styled.div
+      id="installments"
+    >
+      or 
+      9
+      x $
+      1.21
+    </styled.div>
+    <div>
+      <styled.select
+        onChange={[Function]}
+        value="S"
+      >
+        <styled.option
+          key="S"
+          value="S"
+        >
+          S
+        </styled.option>
+        <styled.option
+          key="XS"
+          value="XS"
+        >
+          XS
+        </styled.option>
+      </styled.select>
+    </div>
+  </styled.div>
+  <styled.button
+    id="addtocart"
+    onClick={[Function]}
+  >
+    Add to cart
+  </styled.button>
+</styled.div>
+`;
+
 exports[`ShoppingSite should render correctly in "debug" mode 1`] = `
 <styled.div>
   <styled.div
