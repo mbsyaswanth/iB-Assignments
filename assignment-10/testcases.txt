@@ -7,11 +7,11 @@ AuthPage component
 2) should load ShoppingSite component on successfull login. (from app.js)
 
 
-SizeFilters component
+SizeFilters component 
 
-1) should update the size to store on click
+1) should update the size to store on click (store function is called or not)
 
-2) should change the style on click
+2) should change the style on click (simulate click)
 
 
 Product container component - 30mins
@@ -34,34 +34,74 @@ Product component
 4) snapshots - freeshipping, installments
 
 
-Cart Component
+Cart Component - 30mins 15:11 - 16:00
 
-1) should show the products added to cart 
+1) should show the products added to cart. (count whether the cart item is rendered)
 
 2) should remove the item from cart upon "x" button click (remove from cart should be called on click)
-
+	(simulate button click) 
+	count no of cart items rendered.
+	ensure the removefromcart function is called.
 
 Store 
 
-1) verify all observables are as expected.
+1) verify all observables are as expected. done
 
-2) verify all computed values seperately
+2) addtocart 
+	- should add given product to cart - done.
 
-1) cartItemsCount() should return count
+3) removefromcart 
+	- should remove given product from cart array- done.
 
-2) filteredProducts() should return products
+4) addProduct - 15mins 12:03 - 12:23
+	- should add the given product to the products array.
+	(added product and given product should be same)
+	dependencies 
+		-  filteredProducts
 
-3) filterBySizes() should return filtered products based on sizes , input - products
+5) updateSizeFilters 7mins 12:38 - 12:48
+	- should add the given size to sizes array if not present.
+	- should remove the given size to sizes if already present. 
+	14
 
-4) sortInDesc() should sort products in desc based on price , input - products
+6) updateOrderBy 7mins 12:29 - 12:38
+	- should add the given order to orderBy.
+	14
 
-5) sortInAsc() should sort products in Ascending order based on price , input - products
+7) cartItemsCount 7,8 - 10mins 12:53 - 13:07
+	- should return the number of item in cart, considering the quantity.
 
-6) filteredProductsCount() should match the number of products given by filteredProducts()
+8) totalCartValue 
+	- should return 0.00 if no item in cart.
+	- should return the respective cart value if items are added in cart.
 
-7) getProduct() should return a product on input - id
 
-8) getIndexInProducts() should return index of a product in array , input - product id
+9) getProduct  30min (9,10,11,12,13,14) - 13:13
+	- should return the product , given the id.
+
+10) getIndexInProducts 
+	- given the id of product, should return the index of that product in the products array.
+
+11) sortInAsc
+	- should return the products sorted in ascending order
+
+12) sortDsc
+	- should return the products in descending order
+
+13) filterBySizes
+	- should return the products containing given sizes
+
+14) filteredProducts
+	- should return the filtered products according to given filters... 
+		1) price l-h
+		2) price h-l
+		3) sizes
+
+
+
+
+
+
 
 
 

@@ -124,13 +124,14 @@ class Products {
   @action.bound addProduct(product) {
     this.products.push(new Product(product));
   }
-  //TODO: make constants for sizes
+
   @action.bound updateSizeFilters = size => {
     if (this.sizes.includes(size)) {
       this.sizes.splice(this.sizes.indexOf(size), 1);
       return;
     }
     this.sizes.push(size);
+    console.log(this.sizes);
   };
 
   @action.bound updateOrderBy(order) {

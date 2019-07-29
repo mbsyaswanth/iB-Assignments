@@ -10,7 +10,6 @@ class SizeFilters extends Component {
   handleClick = event => {
     this.props.onFilterClick(event.target.value);
   };
-  //TODO: use function to return classname
 
   render() {
     return (

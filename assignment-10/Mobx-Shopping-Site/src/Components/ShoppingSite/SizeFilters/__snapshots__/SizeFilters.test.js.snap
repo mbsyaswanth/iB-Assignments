@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sizeFilters should have the same snapshot 1`] = `
+<styled.div>
+  <div>
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="XS"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="S"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="M"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="ML"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="L"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="XL"
+    />
+    <styled.input
+      onClick={[Function]}
+      select={false}
+      type="button"
+      value="XXL"
+    />
+  </div>
+</styled.div>
+`;
