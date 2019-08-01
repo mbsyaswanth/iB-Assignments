@@ -1,0 +1,27 @@
+Observables
+    todos
+
+Store
+    [*] addTodo
+    [] removeTodo
+    [] setFilter
+    [] getFilteredList
+        [] getCompleted
+        [] getActive
+        [] getAll
+
+
+Components
+    [] TodoApp
+    [] InputBox
+    [] TodoList
+    [] TodoListItem
+
+Models
+    [] TodoItem
+        [] editTodo
+        [] toggleCompleted
+
+
+[] setup - 10mins 15:37 
+[] addTodo - 15mins
