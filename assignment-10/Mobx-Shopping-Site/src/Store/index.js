@@ -6,6 +6,7 @@ import Product from "../models/Product";
 import User from "../models/User";
 import { endpoints, productFetchStatus, orderBy } from "../constants";
 
+let storage = window.localStorage;
 class Products {
   @observable cart = [];
   @observable products = [];
@@ -21,6 +22,7 @@ class Products {
       this.cart.some((item, itemIndex) => {
         if (item.itemId === id && item.size === size) {
           item.increaseQty();
+          storage.setItem("cart", JSON.stringify(this.cart));
           return true;
         }
         return false;
@@ -31,6 +33,7 @@ class Products {
       console.log("in else push new item");
       this.cart.push(new CartItem(id, size));
     }
+    storage.setItem("cart", JSON.stringify(this.cart));
   }
 
   @action.bound removeFromCart(item) {
@@ -39,6 +42,7 @@ class Products {
         this.cart.splice(index, 1);
       }
     });
+    storage.setItem("cart", JSON.stringify(this.cart));
   }
 
   @action.bound signUp(username, password, history) {
@@ -114,6 +118,14 @@ class Products {
           this.addProduct(product);
         });
         this.productFetchStatus = productFetchStatus.success;
+        let localCart =
+          storage.getItem("cart") != null
+            ? JSON.parse(storage.getItem("cart"))
+            : [];
+
+        this.cart = localCart.map(item => {
+          return new CartItem(item.itemId, item.size, item.quantity);
+        });
       })
       .catch(err => {
         console.log("Ooops, error", err.message);
